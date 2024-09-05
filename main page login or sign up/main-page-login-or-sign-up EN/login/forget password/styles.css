@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('pexels-buro-millennial-636760-1438072.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo1 {
+    background-image: url("logo1.svg");
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+}
+
+header {
+    background: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid hwb(140 4% 13%);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    width: 100%;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header ul li {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+header ul li.right {
+    margin-left: auto;
+}
+
+header ul li.right .lang {
+    display: flex;
+    gap: 10px; /* Add space between AR and EN links */
+}
+
+.wrapper {
+    width: 440px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 80px;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px -10px;
+    padding: 0 0 0 0;
+}
+
+
+.wrapper2 {
+    width: 440px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 80px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center text within the elements */
+}
+
+.wrapper2 h2 {
+    margin-bottom: 20px; /* Add some margin below the heading */
+}
+
+.wrapper2 h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper2 .input-box2 {
+    display: flex;
+    gap: 10px; /* Adjust gap between input fields */
+    justify-content: center;
+    margin-bottom: 20px; /* Add some margin below the input boxes */
+}
+
+.wrapper2 input[type="number"] {
+    width: 40px; /* Adjust width to make the inputs small squares */
+    height: 40px; /* Adjust height to make the inputs small squares */
+    text-align: center; /* Center the text inside the input fields */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0px 45px 0px 20px;
+}
+
+.input-box3 input::placeholder {
+    color: #fff;
+}
+
+.input-box3 input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0px 45px 0px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+
+
+.input-box2 {
+    display: flex;
+    gap: 10px; /* Adjust gap between input fields */
+}
+
+.input-box2 input {
+    width: 40px; /* Adjust width to make the inputs small squares */
+    height: 40px; /* Adjust height to make the inputs small squares */
+    text-align: center; /* Center the text inside the input fields */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+}
+
+::-webkit-inner-spin-button, 
+::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    width: 100%;
+    height: 45px;
+    background: hwb(140 4% 13%);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: #fe0101;
+    color:#fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px  #fff,
+     0 0 25px  #fff,
+      0 0 50px  #fff;
+}
+.btn2 {
+    display: inline-block;
+    background: hwb(140 4% 13%); /* Example color, adjust as needed */
+    color: #fff;
+    padding: 10px 65px ;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn2:hover {
+    background: #fe0101;
+    color:#fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px  #fff,
+     0 0 25px  #fff,
+      0 0 50px  #fff;
+}
+ .btn3 {
+    display: inline-block;
+    background: hwb(140 4% 13%); /* Example color, adjust as needed */
+    color: #fff;
+    padding: 10px 70px ;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn3:hover {
+    background: #fe0101;
+    color:#fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px  #fff,
+     0 0 25px  #fff,
+      0 0 50px  #fff;
+}
+
+h5 {margin-top: 10px;}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    color: #fff;
+    text-align: center;
+}

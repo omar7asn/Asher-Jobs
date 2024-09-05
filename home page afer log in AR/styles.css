@@ -1,0 +1,340 @@
+body {
+    background-color: #e9ebee;
+    font-family: Arial, sans-serif;
+    margin-top: 60px; /* Adjust according to your header height */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo1 {
+    background-image: url("logo1.svg");
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+}
+
+header {
+    background: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid hwb(140 4% 13%);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    width: 100%;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header ul li {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+header ul li.right {
+    margin-left: auto;
+}
+
+header ul li.right .lang {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Ensure the content inside is aligned center */
+}
+
+header ul li.right .btn1x {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add some space between the chat icon and profile picture */
+}
+
+header ul li.middle {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+header ul li.middle a {
+    margin: 0 10px;
+}
+
+header ul li.middle :hover {
+    color: hwb(140 4% 13%);
+}
+
+.profile-picture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.content {
+    width: 50%;
+    margin: 20px auto;
+    margin-top: 100px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#openPopupButton {
+    padding: 10px;
+    padding-left: 250px;
+    padding-right: 250px;
+    background: #eae9e9;
+    color: #090909;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#openPopupButton {
+    padding: 10px;
+    padding-left: 20px; /* Adjust this value as needed */
+    padding-right: 460px;
+    background: #eae9e9;
+    color: #090909;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    text-align: left; /* Align text to the left */
+}
+
+
+#openPopupButton:hover {
+    background: #dfdfdf;
+    color: #040404;
+    border-radius: 1px;
+    box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #fff;
+}
+
+.post-popup {
+    display: none;
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.post-popup .close-button {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.post-popup textarea {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 100px; /* Fixed height */
+    resize: none; /* Disable resizing */
+}
+
+.image-upload {
+    margin-bottom: 10px;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#imagePreview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.post-popup button {
+    padding: 10px;
+    background: hwb(140 4% 13%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.post-popup button:hover {
+    background: #fe0101;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #fff;
+}
+
+#postsContainer .post {
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px auto; /* Added for spacing between posts */
+    width: 80%; /* Ensuring post takes 80% width */
+    position: relative;
+}
+
+#postsContainer .post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-header .post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header .post-info .name {
+    font-weight: bold;
+}
+
+.post-header .post-info .timestamp {
+    font-size: 12px;
+    color: gray;
+}
+
+
+
+/* Default button styles */
+.agree-button,
+.disagree-button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: white; /* Default background color */
+    color: black; /* Default text color */
+}
+
+.agree-button.active {
+    background-color: hwb(140 4% 13%); /* Green color for agree button */
+    color: white;
+}
+
+.disagree-button.active {
+    background-color: #fe0101; /* Red color for disagree button */
+    color: white;
+}
+
+/* Counters positioning */
+.agree-counter,
+.disagree-counter {
+    margin-top: 5px;
+    text-align: center; /* Ensure counter text is centered */
+}
+
+.agree-counter {
+    order: 1; /* Position under agree button */
+}
+
+.disagree-counter {
+    order: 3; /* Position under disagree button */
+}
+
+
+.agree-counter,
+.disagree-counter {
+    margin-top: 5px;
+    text-align: center; /* Ensure counter text is centered */
+}
+
+.agree-counter {
+    order: 1; /* Position under agree button */
+}
+
+.disagree-counter {
+    order: 3; /* Position under disagree button */
+}
+
+
+button i {
+    font-size: 20px;
+}
+
+.post-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.menu-content a {
+    text-decoration: none;
+    color: #333;
+    display: inline;
+}
+
+.menu-content a:hover {
+    color: #fe0101;
+}
+
+.post-menu.active .menu-content {
+    display: block;
+}

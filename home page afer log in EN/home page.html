@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher Jobs-Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="../home page afer log in EN/home page.html"><div class="logo1"></div></a></li>
+                    <li><a href="../home page afer log in EN/home page.html"><h1>Asher Jobs</h1></a></li>
+                    <li class="middle">
+                        <a href="../home page afer log in EN/home page.html">Home Page</a>
+                        <a href="../Courses EN/courses.html">Courses</a>
+                        <a href="#">Jobs</a>
+                        <a href="#">Analysis</a>
+                        <a href="#">Profile Page</a>
+                    </li>
+                    <li class="right">
+                        <div class="lang">
+                            <a href="../home page afer log in AR/home page.html"><h6>AR</h6></a>
+                            <a href="#"><h6>EN</h6></a>
+                            <div class="btn1x">
+                                <a href="#" class="btn"><i class='bx bx-chat'></i></a>
+                                <div class="profile-picture">
+                                    <img src="path-to-profile-picture.jpg" alt="Profile Picture">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="content">
+        <button id="openPopupButton">What's in your mind?</button>
+        <div id="postPopup" class="post-popup">
+            <span id="closePopupButton" class="close-button">&times;</span>
+            <textarea id="postContent" placeholder="What's on your mind?"></textarea>
+            <div class="image-upload">
+                <button id="imageUploadButton">Add Image</button>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="image-preview-container">
+                <img id="imagePreview" src="" alt="Image Preview" style="display: none;">
+                <button id="deleteImageButton" style="display: none;">Delete Image</button>
+            </div>
+            <button id="postButton">Post</button>
+        </div>
+        <div id="postsContainer"></div>
+    </div>
+
+   
+
+    <script>
+        document.getElementById('signUpBtn').addEventListener('click', function() {
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelector('.login').style.display = 'none';
+            document.querySelector('.main-content').style.display = 'block';
+            document.querySelector('.login-button').style.display = 'none'; // Hide login button in header
+        });
+    </script>
+    
+    <style>  
+        body {
+    background-color: #e9ebee;
+    font-family: Arial, sans-serif;
+    margin-top: 60px; /* Adjust according to your header height */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo1 {
+    background-image: url("logo1.svg");
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+}
+
+header {
+    background: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid hwb(140 4% 13%);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    width: 100%;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header ul li {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+header ul li.right {
+    margin-left: auto;
+}
+
+header ul li.right .lang {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Ensure the content inside is aligned center */
+}
+
+header ul li.right .btn1x {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add some space between the chat icon and profile picture */
+}
+
+header ul li.middle {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+header ul li.middle a {
+    margin: 0 10px;
+}
+
+header ul li.middle :hover {
+    color: hwb(140 4% 13%);
+}
+
+.profile-picture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.content {
+    width: 50%;
+    margin: 20px auto;
+    margin-top: 100px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#openPopupButton {
+    padding: 10px;
+    padding-left: 250px;
+    padding-right: 250px;
+    background: #eae9e9;
+    color: #090909;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    text-align: left;
+}
+
+#openPopupButton {
+    padding: 10px;
+    padding-left: 20px; /* Adjust this value as needed */
+    padding-right: 460px;
+    background: #eae9e9;
+    color: #090909;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    text-align: left; /* Align text to the left */
+}
+
+
+#openPopupButton:hover {
+    background: #dfdfdf;
+    color: #040404;
+    border-radius: 1px;
+    box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #fff;
+}
+
+.post-popup {
+    display: none;
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.post-popup .close-button {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.post-popup textarea {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    height: 100px; /* Fixed height */
+    resize: none; /* Disable resizing */
+}
+
+.image-upload {
+    margin-bottom: 10px;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#imagePreview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.post-popup button {
+    padding: 10px;
+    background: hwb(140 4% 13%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.post-popup button:hover {
+    background: #fe0101;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #fff;
+}
+
+#postsContainer .post {
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px auto; /* Added for spacing between posts */
+    width: 80%; /* Ensuring post takes 80% width */
+    position: relative;
+}
+
+#postsContainer .post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-header .post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header .post-info .name {
+    font-weight: bold;
+}
+
+.post-header .post-info .timestamp {
+    font-size: 12px;
+    color: gray;
+}
+
+
+
+/* Default button styles */
+.agree-button,
+.disagree-button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: white; /* Default background color */
+    color: black; /* Default text color */
+}
+
+.agree-button.active {
+    background-color: hwb(140 4% 13%); /* Green color for agree button */
+    color: white;
+}
+
+.disagree-button.active {
+    background-color: #fe0101; /* Red color for disagree button */
+    color: white;
+}
+
+/* Counters positioning */
+.agree-counter,
+.disagree-counter {
+    margin-top: 5px;
+    text-align: center; /* Ensure counter text is centered */
+}
+
+.agree-counter {
+    order: 1; /* Position under agree button */
+}
+
+.disagree-counter {
+    order: 3; /* Position under disagree button */
+}
+
+
+.agree-counter,
+.disagree-counter {
+    margin-top: 5px;
+    text-align: center; /* Ensure counter text is centered */
+}
+
+.agree-counter {
+    order: 1; /* Position under agree button */
+}
+
+.disagree-counter {
+    order: 3; /* Position under disagree button */
+}
+
+
+button i {
+    font-size: 20px;
+}
+
+.post-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.menu-content a {
+    text-decoration: none;
+    color: #333;
+    display: inline;
+}
+
+.menu-content a:hover {
+    color: #fe0101;
+}
+
+.post-menu.active .menu-content {
+    display: block;
+}
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const elements = {
+        openPopupButton: document.getElementById('openPopupButton'),
+        postPopup: document.getElementById('postPopup'),
+        closePopupButton: document.getElementById('closePopupButton'),
+        postButton: document.getElementById('postButton'),
+        postsContainer: document.getElementById('postsContainer'),
+        imageUploadButton: document.getElementById('imageUploadButton'),
+        imageInput: document.getElementById('imageInput'),
+        imagePreview: document.getElementById('imagePreview'),
+        deleteImageButton: document.getElementById('deleteImageButton'),
+        postContent: document.getElementById('postContent')
+    };
+
+    let imageFile = null;
+
+    function togglePopup(display) {
+        elements.postPopup.style.display = display;
+        elements.openPopupButton.style.display = display === 'block' ? 'none' : 'block';
+    }
+
+    function handleImageUpload() {
+        elements.imageInput.click();
+    }
+
+    function handleImageChange(event) {
+        const file = event.target.files[0];
+        if (file) {
+            imageFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                elements.imagePreview.src = e.target.result;
+                elements.imagePreview.style.display = 'block';
+                elements.deleteImageButton.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function handleImageDelete() {
+        imageFile = null;
+        elements.imagePreview.src = '';
+        elements.imagePreview.style.display = 'none';
+        elements.deleteImageButton.style.display = 'none';
+        elements.imageInput.value = '';
+    }
+
+    function createPostElement(postContent) {
+        const post = document.createElement('div');
+        post.classList.add('post');
+
+        const postHeader = createPostHeader();
+        post.appendChild(postHeader);
+
+        const postText = document.createElement('div');
+        postText.classList.add('post-text');
+        postText.textContent = postContent;
+        post.appendChild(postText);
+
+        if (imageFile) {
+            const postImage = document.createElement('img');
+            postImage.src = URL.createObjectURL(imageFile);
+            post.appendChild(postImage);
+        }
+
+        post.appendChild(createButtonContainer('agree'));
+        post.appendChild(createButtonContainer('disagree'));
+
+        return post;
+    }
+
+    function createPostHeader() {
+        const postHeader = document.createElement('div');
+        postHeader.classList.add('post-header');
+
+        const profilePicture = document.createElement('img');
+        profilePicture.src = 'path-to-profile-picture.jpg'; // Replace with actual path
+
+        const postInfo = document.createElement('div');
+        postInfo.classList.add('post-info');
+        postInfo.innerHTML = `
+            <div class="name">User Name</div>
+            <div class="timestamp">${new Date().toLocaleString()}</div>
+        `;
+
+        const postMenu = document.createElement('div');
+        postMenu.classList.add('post-menu');
+        postMenu.innerHTML = `
+            <i class="bx bx-dots-horizontal-rounded"></i>
+            <div class="menu-content">
+                <a href="#" class="delete-post">Delete Post</a>
+            </div>
+        `;
+
+        postHeader.appendChild(profilePicture);
+        postHeader.appendChild(postInfo);
+        postHeader.appendChild(postMenu);
+
+        postMenu.addEventListener('click', () => postMenu.classList.toggle('active'));
+
+        return postHeader;
+    }
+
+    function createButtonContainer(type) {
+        const container = document.createElement('div');
+        container.classList.add(`${type}-button-container`);
+
+        const button = document.createElement('button');
+        button.classList.add(`${type}-button`);
+        button.innerHTML = `<i class="bx bx-${type === 'agree' ? 'like' : 'dislike'}"></i> ${type.charAt(0).toUpperCase() + type.slice(1)}`;
+
+        const counter = document.createElement('div');
+        counter.classList.add('counter');
+        counter.textContent = '0';
+
+        button.addEventListener('click', (event) => handleButtonClick(event, type));
+
+        container.appendChild(button);
+        container.appendChild(counter);
+
+        return container;
+    }
+
+    function handleButtonClick(event, type) {
+        const button = event.target.closest('button');
+        const counter = button.nextElementSibling;
+        const post = button.closest('.post');
+        const oppositeType = type === 'agree' ? 'disagree' : 'agree';
+        const oppositeButton = post.querySelector(`.${oppositeType}-button`);
+        const oppositeCounter = oppositeButton.nextElementSibling;
+
+        if (button.classList.contains('active')) {
+            button.classList.remove('active');
+            counter.textContent = parseInt(counter.textContent) - 1;
+        } else {
+            button.classList.add('active');
+            counter.textContent = parseInt(counter.textContent) + 1;
+
+            if (oppositeButton.classList.contains('active')) {
+                oppositeButton.classList.remove('active');
+                oppositeCounter.textContent = parseInt(oppositeCounter.textContent) - 1;
+            }
+        }
+    }
+
+    function resetPopup() {
+        elements.postContent.value = '';
+        imageFile = null;
+        elements.imagePreview.src = '';
+        elements.imagePreview.style.display = 'none';
+        elements.deleteImageButton.style.display = 'none';
+        elements.imageInput.value = '';
+    }
+
+    elements.openPopupButton.addEventListener('click', () => togglePopup('block'));
+    elements.closePopupButton.addEventListener('click', () => {
+        togglePopup('none');
+        resetPopup();
+    });
+    elements.imageUploadButton.addEventListener('click', handleImageUpload);
+    elements.imageInput.addEventListener('change', handleImageChange);
+    elements.deleteImageButton.addEventListener('click', handleImageDelete);
+
+    elements.postButton.addEventListener('click', () => {
+        const postContent = elements.postContent.value;
+        const post = createPostElement(postContent);
+
+        elements.postsContainer.insertBefore(post, elements.postsContainer.firstChild);
+
+        togglePopup('none');
+        resetPopup();
+    });
+
+    elements.postsContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('delete-post')) {
+            const post = event.target.closest('.post');
+            post.remove();
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>

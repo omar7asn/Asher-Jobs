@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <section> 
+        <header> 
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="../main-page1/index.html"><div class="logo1"></div></a></li> <!-- Displaying the logo -->
+                        <li><a href="../main-page1/index.html"><h1>Asher Jobs</h1></a></li>
+                        <li class="right">
+                            <div class="lang">
+                                <a href="../../main-page-login-or-sign-up AR/corporates-1/companies.html"><h6>AR</h6></a>
+                                <a href="#"><h6>EN</h6></a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </section>
+
+    <div class="wrapper">
+        <form action="" id="passwordForm">
+            <h2>Create a new account now</h2>
+            <div class="input-box">
+                <input type="text" placeholder="First Name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Last Name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Company Name" required>
+            </div>
+            <div class="input-box input-box3">
+                <input type="email" id="email" placeholder="Email Address" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <label for="password1">
+                <input type="password" id="password1" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </label>
+            </div>
+            <div class="input-box">
+                <label for="password2">
+                <input type="password" id="password2" placeholder="Confirm Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </label>
+            </div>
+            <span id="error-message" class="hidden">Passwords do not match</span>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <h5>by signing up you agree to terms and policy</h5>
+    </div>
+
+    <div class="wrapper1 hidden" id="otpWrapper">
+        <form action="" id="otpForm">
+            <h2>Email Verification</h2> 
+            <p>We've sent a verification OTP to your email and it might take 5 minutes. Please check your inbox, junk, and spam folders, then enter the code.</p>
+            <div class="input-box2">
+                <input type="number" maxlength="1" />
+                <input type="number" maxlength="1"/>
+                <input type="number" maxlength="1"/>
+                <input type="number" maxlength="1"/>
+            </div>
+            
+            <button type="submit" class="btn2">Verify</button>
+            
+            <div>  
+                <a href="../../main-page-login-or-sign-up EN/corporates-1/companies.html" class="btn3">Back</a> 
+            </div>
+        </form>
+    </div>
+
+    <div class="wrapper hidden" id="uploadWrapper">
+        <h3>Please upload your national ID</h3>
+        <br />
+        <section class="national-id">
+            <form method="post" enctype="multipart/form-data" id="idFormFront">
+                <label for="fileFront">National ID front</label>
+                <input id="fileFront" name="fileFront" type="file">
+                <br />
+                <button type="submit" class="btn">Upload</button> 
+            </form>
+        </section>
+        <br /><br />
+        <section class="national-id">
+            <form method="post" enctype="multipart/form-data" id="idFormBack">
+                <label for="fileBack">National ID backside</label>
+                <input id="fileBack" name="fileBack" type="file">
+                <br />
+                <button type="submit" class="btn">Upload</button>
+            </form>
+        </section>
+        <button type="button" class="btn" id="finishSignup">Finish sign up</button>
+    </div>
+
+    <div class="wrapper hidden" id="passwordForm2">
+        <form action="">
+            <h5>One of our team will review your national ID and will send you a reply with account status update within 72 hours</h5>
+        </form>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        emailjs.init("yvyWUXDs0LQX_4Pbq"); // Initialize EmailJS with your User ID
+
+        const passwordForm = document.getElementById('passwordForm');
+        const otpWrapper = document.getElementById('otpWrapper');
+        const uploadWrapper = document.getElementById('uploadWrapper');
+        const passwordForm2 = document.getElementById('passwordForm2');
+        const otpForm = document.getElementById('otpForm');
+        const idFormFront = document.getElementById('idFormFront');
+        const idFormBack = document.getElementById('idFormBack');
+        const otpInputs = document.querySelectorAll('.input-box2 input[type="number"]');
+        const errorMessage = document.getElementById('error-message');
+        const finishSignupButton = document.getElementById('finishSignup');
+        let generatedOTP = '';
+        let otpSent = false; // Flag to check if OTP is already sent
+
+        passwordForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            validatePasswords();
+        });
+
+        otpForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            verifyOTP();
+        });
+
+        idFormFront.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('National ID front uploaded successfully!');
+            // Perform additional actions as needed
+        });
+
+        idFormBack.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('National ID backside uploaded successfully!');
+            // Perform additional actions as needed
+        });
+
+        finishSignupButton.addEventListener('click', function() {
+            alert('Sign up process completed successfully!');
+            showPasswordForm2();
+        });
+
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                handleOTPInput(e, index);
+            });
+
+            input.addEventListener('keydown', (e) => {
+                handleOTPKeydown(e, index);
+            });
+        });
+
+        function validatePasswords() {
+            const password1 = document.getElementById('password1').value;
+            const password2 = document.getElementById('password2').value;
+            const email = document.getElementById('email').value;
+
+            if (password1 !== password2) {
+                errorMessage.classList.remove('hidden');
+            } else {
+                errorMessage.classList.add('hidden');
+                if (!otpSent) { // Only send OTP if it hasn't been sent
+                    sendOTP(email);
+                }
+            }
+        }
+
+        function sendOTP(email) {
+            if (otpSent) {
+                console.log('OTP already generated and sent:', generatedOTP);
+                return;
+            }
+
+            const otp = Math.floor(1000 + Math.random() * 9000);
+            generatedOTP = otp.toString();
+
+            const templateParams = {
+                to_email: email,
+                otp: generatedOTP
+            };
+
+            emailjs.send('service_wovyjzm', 'template_zkht55u', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    toggleForms();
+                    otpSent = true; // Set flag to true once OTP is sent
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    generatedOTP = ''; // Reset OTP in case of failure
+                    otpSent = false; // Allow OTP to be sent again in case of failure
+                });
+        }
+
+        function handleOTPInput(e, index) {
+            if (e.target.value.length > 1) {
+                e.target.value = e.target.value.slice(0, 1);
+            }
+
+            if (e.target.value !== '' && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            }
+        }
+
+        function handleOTPKeydown(e, index) {
+            if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
+                otpInputs[index - 1].focus();
+            }
+        }
+
+        function verifyOTP() {
+            const enteredOTP = Array.from(otpInputs).map(input => input.value).join('');
+            if (enteredOTP === generatedOTP) {
+                toggleUploadSection();
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        }
+
+        function toggleForms() {
+            passwordForm.parentNode.classList.add('hidden');
+            otpWrapper.classList.remove('hidden');
+        }
+
+        function toggleUploadSection() {
+            otpWrapper.classList.add('hidden');
+            uploadWrapper.classList.remove('hidden');
+        }
+
+        function showPasswordForm2() {
+            document.querySelectorAll('.wrapper').forEach(wrapper => wrapper.classList.add('hidden'));
+            passwordForm2.classList.remove('hidden');
+        }
+    });
+</script>
+
+    <style>
+.wrapper2 {
+    width: 440px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 80px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center text within the elements */
+}
+
+.wrapper2 h2 {
+    margin-bottom: 20px; /* Add some margin below the heading */
+}
+
+.wrapper2 h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper2 .input-box2 {
+    display: flex;
+    gap: 10px; /* Adjust gap between input fields */
+    justify-content: center;
+    margin-bottom: 20px; /* Add some margin below the input boxes */
+}
+
+.wrapper2 input[type="number"] {
+    width: 40px; /* Adjust width to make the inputs small squares */
+    height: 40px; /* Adjust height to make the inputs small squares */
+    text-align: center; /* Center the text inside the input fields */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.input-box2 {
+    display: flex;
+    gap: 10px; /* Adjust gap between input fields */
+}
+
+.input-box2 input {
+    width: 40px; /* Adjust width to make the inputs small squares */
+    height: 40px; /* Adjust height to make the inputs small squares */
+    text-align: center; /* Center the text inside the input fields */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.btn2 {
+    display: inline-block;
+    background: hwb(140 4% 13%); /* Example color, adjust as needed */
+    color: #fff;
+    padding: 10px 65px ;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn2:hover {
+    background: #fe0101;
+}
+ .btn3 {
+    display: inline-block;
+    background: hwb(140 4% 13%); /* Example color, adjust as needed */
+    color: #fff;
+    padding: 10px 70px ;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn3:hover {
+    background: #fe0101;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0px 45px 0px 20px;
+}
+
+.input-box3 input::placeholder {
+    color: #fff;
+}
+
+.input-box3 input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0px 45px 0px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    width: 100%;
+    height: 45px;
+    background: hwb(140 4% 13%);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: #fe0101;
+    color:#fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px  #fff,
+     0 0 25px  #fff,
+      0 0 50px  #fff;
+}
+
+.national-id {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(200px);
+    border-radius: 10px;
+}
+
+section {
+    padding: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('pexels-djordje-petrovic-590080-2102416.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo1 {
+    background-image: url("logo1.svg");
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+}
+
+header {
+    background: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid hwb(140 4% 13%);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    width: 100%;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header ul li {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+header ul li.right {
+    margin-left: auto;
+}
+
+header ul li.right .lang {
+    display: flex;
+    gap: 10px; /* Add space between AR and EN links */
+}
+
+.wrapper {
+    width: 440px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 80px;
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px -10px;
+    padding: 0 0 0 0;
+}
+.wrapper1 {
+    width: 440px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    position: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+::-webkit-inner-spin-button, 
+::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+h5 {margin-top: 10px;}
+
+
+    </style>
+</body>
+</html>

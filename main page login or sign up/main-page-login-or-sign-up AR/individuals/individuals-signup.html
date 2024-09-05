@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <section> 
+        <header> 
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="../main-page1/index.html"><div class="logo1"></div></a></li> <!-- Displaying the logo -->
+                        <li><a href="../main-page1/index.html"><h1>Asher Jobs</h1></a></li>
+                        <li class="right">
+                            <div class="lang">
+                                <a href="../../main-page-login-or-sign-up AR/individuals/individuals-signup.html"><h6>AR</h6></a>
+                                <a href="../../main-page-login-or-sign-up EN/individuals/individuals-signup.html"><h6>EN</h6></a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </section>
+
+    <div class="wrapper">
+        <form action="" id="passwordForm">
+            <h2>إشترك كمستخدم جديد</h2>
+            <div class="input-box">
+                <input type="text" placeholder="الإسم الأول" required>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="إسم الأب" required>
+            </div>
+            <div class="input-box">
+                <input type="date" id="dob" name="dob" required>
+                <i class='bx bxs-baby-carriage'></i>
+            </div>
+            <div class="input-box input-box3">
+                <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <label for="password1">
+                <input type="password" id="password1" placeholder="كلمة المرور  " required>
+                <i class='bx bxs-lock-alt'></i>
+            </label>
+            </div>
+            <div class="input-box">
+                <label for="password2">
+                <input type="password" id="password2" placeholder="تأكيد كلمة المرور" required>
+                <i class='bx bxs-lock-alt'></i>
+            </label>
+            </div>
+            <span id="error-message" class="hidden">كلمتي المرور غير متطابقتين</span>
+            <button type="submit" class="btn">تسجيل كمستخدم جديد</button>
+        </form>
+        <h5> بالتسجيل كمستخدم جديد أنت توافق على شروط الإستخدام و الخصوصية</h5>
+    </div>
+
+    <div class="wrapper2 hidden">
+        <form action="" id="otpForm">
+            <h2>التحقق من البريد الإلكتروني</h2> 
+            <p>لقد أرسلنا رمز التحقق</p>
+            <p>(OTP) </p>
+            <p>إلى بريدك الإلكتروني وقد يستغرق الأمر 5 دقائق. يرجى التحقق من صندوق الوارد، الرسائل غير المرغوب فيها، والمجلدات العشوائية، ثم أدخل الرمز</p>
+            <div class="input-box2">
+                <input type="number" maxlength="1" />
+                <input type="number" maxlength="1"/>
+                <input type="number" maxlength="1"/>
+                <input type="number" maxlength="1"/>
+            </div>
+            
+            <button type="submit" class="btn2">تحقق</button>
+            
+            <div>  
+                <a href="../../main-page-login-or-sign-up AR/individuals/individuals-signup.html" class="btn3">رجوع</a> 
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Asher Jobs. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+

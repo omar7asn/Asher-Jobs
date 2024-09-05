@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher Jobs</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS file -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+
+</head>
+
+<section> 
+    <header> 
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="../main-page1/index.html"><div class="logo1"></div></a></li> <!-- Displaying the logo -->
+                    <li><a href="../main-page1/index.html"><h1>Asher Jobs</h1></a></li>
+                    <li class="right">
+                        <div class="lang">
+                            <a href="../../main-page-login-or-sign-up AR/login/login.html"><h6>AR</h6></a>
+                            <a href="#"><h6>EN</h6></a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</section>
+
+<body>
+ 
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="Email Address" placeholder="Email Address" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remember-forget">
+                <label><input type="checkbox">Remember me</label>
+                <a href="../../main-page-login-or-sign-up EN/login/forget password/forget password.html">Forget Password?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a href="../sign-up/signup1.html">Sign up</a></p>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+<style>
+   /* Global styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('pexels-fauxels-3184325.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo1 {
+    background-image: url("logo1.svg");
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+
+}
+  /* Header styles */
+        header {
+            background: #333;
+   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+            border-bottom: 3px solid hwb(140 4% 13%);
+            display: flex;
+            align-items: center;
+            width: 100%;
+            position:fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header nav {
+            display: flex;
+            width: 100%;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        header ul li {
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        header ul li.right {
+margin-left: auto;
+        }
+       
+
+        header ul li.right .lang {
+            display:flex;
+            gap: 10px; /* Add space between AR and EN links */
+        }
+        
+
+/* Wrapper styles */
+.wrapper {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 80px;
+    position: relative;
+   
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper .input-box{
+    position:relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px -10px;
+    padding:0 0px 0 0;
+}
+
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0px 45px 0px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.remember-forget {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forget label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forget a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forget a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: hwb(140 4% 13%);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: #fe0101;
+    color:#fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px  #fff,
+     0 0 25px  #fff,
+      0 0 50px  #fff;
+}
+
+.register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+ 
+</style>
+</html>

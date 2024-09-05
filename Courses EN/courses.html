@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher Jobs-Courses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="../home page afer log in EN/home page.html">
+                            <div class="logo1"></div>
+                        </a></li>
+                    <li><a href="../home page afer log in EN/home page.html">
+                            <h1>Asher Jobs</h1>
+                        </a></li>
+                    <li class="middle">
+                        <a href="../home page afer log in EN/home page.html">Home Page</a>
+                        <a href="../Courses EN/courses.html">Courses</a>
+                        <a href="#">Jobs</a>
+                        <a href="#">Analysis</a>
+                        <a href="#">Profile Page</a>
+                    </li>
+                    <li class="right">
+                        <div class="lang">
+                            <a href="#">
+                                <h6>AR</h6>
+                            </a>
+                            <a href="#">
+                                <h6>EN</h6>
+                            </a>
+                            <div class="btn1x">
+                                <a href="#" class="btn"><i class='bx bx-chat'></i></a>
+                                <div class="profile-picture">
+                                    <img src="path-to-profile-picture.jpg" alt="Profile Picture">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="course-list container">
+            <div class="course-item" data-course-id="1">
+                <h2>Essential Professional Skills For Collaborating With Leaders, Colleagues And Applicants. (En)</h2>
+                <p>This course equips you with essential communication, networking, and negotiation skills for effective collaboration with leaders, colleagues, and applicants, ensuring success in professional environments.</p>
+            </div>
+        </section>
+
+        <section class="course-content-wrapper container" id="course-content-wrapper">
+            <div class="content-list">
+                <!-- Content list will be loaded dynamically here -->
+            </div>
+            <div class="video-content">
+                <!-- Video content will be loaded dynamically here -->
+            </div>
+        </section>
+    </main>
+
+   
+    <footer>
+        <div class="footer-container">
+
+                <section class="company-logo">
+                    <a href="../main-page1/index.html"><div class="logo1"></div></a>
+                    <h2>Asher Jobs</h2>
+                </section>
+    
+            <section class="links">
+                <h4>Links</h4>
+                <div class="links-list">
+                    <a href="#">Contact Us</a>
+                    <a href="/policies">Privacy, Cookies, Terms &amp; Conditions</a>
+                </div>
+            </section>
+    
+            <section class="follow-us">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61563529083328" target="_blank" rel="noopener noreferrer" aria-label="Asher Jobs facebook social page link">
+                        <svg width="28" height="28" preserveAspectRatio="none" viewBox="0 0 24 24">
+                            <path fill="white" d="M16.261 4.113v2.525l-1.498.004c-1.175 0-1.401.558-1.401 1.374v1.806h2.798l-.363 2.826h-2.435V20h-2.919v-7.352H8V9.822h2.443V7.74C10.443 5.319 11.918 4 14.08 4c1.03 0 1.92.078 2.181.113z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/AsherJobs" target="_blank" rel="noopener noreferrer" aria-label="Asher Jobs X social page link">
+                        <svg width="28" height="28" viewBox="0 0 2000 1300" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/3ashr-jobs/?viewAsMember=true" target="_blank" rel="noopener noreferrer" aria-label="wuzzuf linkedin social page link">
+                        <svg width="28" height="28" preserveAspectRatio="none" viewBox="0 0 24 24">
+                            <path fill="white" d="M20 20h-3.288v-5.6c0-1.535-.583-2.392-1.798-2.392-1.322 0-2.012.892-2.012 2.393V20H9.733V9.333h3.169v1.437s.952-1.763 3.216-1.763c2.262 0 3.882 1.382 3.882 4.24V20zM5.954 7.937A1.961 1.961 0 014 5.968C4 4.881 4.874 4 5.954 4a1.96 1.96 0 011.953 1.968 1.96 1.96 0 01-1.953 1.969zM4.318 20H7.62V9.333H4.318V20z"></path>
+                        </svg>
+                    </a>
+                    
+                </div>
+                <span>© 2024 Asher Jobs. All rights reserved</span>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const courseItems = document.querySelectorAll('.course-item');
+            const courseContentWrapper = document.getElementById('course-content-wrapper');
+            const contentList = courseContentWrapper.querySelector('.content-list');
+            const videoContent = courseContentWrapper.querySelector('.video-content');
+
+            const courses = {
+                1: {
+                    title: "Essential professional skills for work with Leaders, colleagues and applicants. (En)",
+                    modules: [
+                        {
+                            title: "Communication",
+                            intro: "https://www.youtube.com/embed/xQfYiHbAjJo?rel=0&modestbranding=1",
+                            lessons: [
+                                { title: "Public speaking and presentation skills: Lesson 1", url: "https://www.youtube.com/embed/i5mYphUoOCs", description: "In this video, we’ll explore essential public speaking tips for beginners, aiming to improve your confidence and effectiveness on stage. Mastering communication skills is vital for rising leaders who want to make a lasting impact. To help you excel in public speaking, here are some crucial dos and don’ts. First, avoid rambling and being disorganized. Instead, structure your speech with a clear introduction, body, and conclusion. Concise messages are easier for audiences to follow and remember. Second, maintain proper eye contact. Look directly into a person’s eyes for the duration of a thought, creating a connection with your audience. When using notes, don’t clutter them with too many details. Simplify your notes into talking points that allow you to speak naturally and engage with your listeners. Similarly, keep your PowerPoint slides simple and avoid overloading them with text and animations. Use slides to emphasize key points, not to dominate your presentation. Don’t fidget or pace aimlessly while speaking. Instead, adopt a confident posture, moving purposefully when necessary. Finally, use your voice effectively by speaking clearly and confidently, avoiding fillers like (um) and (ah) and pausing for emphasis when needed. By following these guidelines, you'll enhance your public speaking abilities and leave a memorable impression on your audience." },
+                                { title: "Public speaking and presentation skills pt 2: Lesson 2", url: "https://www.youtube.com/embed/d812a7qG9Kw", description: "Effective practice is the key to delivering a successful speech or presentation. According to Alex Lyon, public speaking expert, there are five essential techniques to enhance your practice sessions. First, always practice from an outline, not a script, to sound conversational and engage your audience naturally. Gradually reduce your notes to a bulleted outline, allowing flexibility while presenting. Second, spread out your practice sessions over several days, ideally practicing three times a day over three days. This approach reduces anxiety and helps refine your delivery. Third, focus on improving one or two aspects of your presentation during each practice session, such as eye contact or gestures. Trying to perfect everything at once can overwhelm you. Fourth, make your practice sessions realistic by introducing distractions to simulate real-life conditions. Practicing under less-than-perfect conditions prepares you to handle interruptions smoothly. Lastly, visualize the first and last 30 seconds of your speech, just like athletes do. This technique enhances your performance and builds confidence. By incorporating these strategies, you can significantly elevate your public speaking skills and deliver a compelling presentation. watch video above to know more." },
+                                { title: "Persuasive skills: Lesson 3", url: "https://www.youtube.com/embed/qFRciL2P4s4", description: "Rhetorical devices are powerful tools in public speaking, allowing speakers to craft persuasive, memorable messages. These techniques, often called literary devices, creatively enhance communication, making it more engaging and impactful. One such device is alliteration, where the repetition of initial consonant sounds in a phrase adds rhythm and emphasis. Iconic brands like Dunkin’ Donuts and Coca-Cola use alliteration to create catchy names. Songwriters, like The Beatles with (Whisper words of wisdom,) also leverage alliteration to make lyrics resonate. Another device is rhyming, which, when used strategically, makes a message stick. The famous courtroom rhyme, “If it doesn’t fit, you must acquit,” illustrates how rhyme can turn a complex argument into a memorable soundbite. However, overusing rhyme can seem forced, so it's essential to strike the right balance. Analogies compare two unlike things to clarify a concept, such as Martin Luther King Jr.'s analogy of justice flowing like water, which powerfully conveys the idea of unstoppable progress. Metaphors and similes are close relatives; both draw comparisons, but similes use (like) or (as.) For instance, saying (The eyes are like a window to the soul) softens the connection, making it more relatable. These comparisons stretch the listener's imagination, making ideas more vivid. Amplification, hyperbole, and personification are additional techniques that enhance messages through emphasis or exaggeration. Whether adding adjectives to clarify a point or giving human characteristics to non-human objects, these devices help speakers make their messages memorable and compelling. watch video above to answer all questions in your mind" },
+                                { title: "Listening skills: Lesson 4", url: "https://www.youtube.com/embed/7wUCyjiyXdg", description: "Active listening is a vital communication skill that strengthens relationships and enhances understanding. Unlike passive listening, where someone may only partially engage, active listening involves complete mental and emotional engagement. To practice active listening effectively, you must first make a commitment to prioritize the conversation over distractions and consistently practice these skills. The first element of active listening is nonverbal communication, which includes making eye contact, maintaining open body posture, and observing the speaker's nonverbal cues like facial expressions and gestures. Secondly, verbal communication plays a key role. This involves asking thoughtful questions and using small verbal affirmations like (I see) or (hmm) to show you're following the conversation. The third aspect is responding to the speaker meaningfully, reflecting on what they've said, and possibly asking follow-up questions to show interest. Finally, the focus should remain on the speaker. Avoid shifting the conversation to yourself or unrelated topics until they’ve fully expressed themselves. Practicing these techniques will significantly improve your listening abilities and communication effectiveness." },
+                                { title: "Communicating with empathy: Lesson 5", url: "https://www.youtube.com/embed/8tyFJTtzYtY", description: "Learn essential public speaking skills to engage your audience and make impactful presentations.Empathy is a transformative skill that can greatly enhance our communication and connection with others. In this video, Alex Lyon, a communication coach, delves into the significance of empathy in leadership and professional interactions. He begins by reflecting on a personal experience at a McDonald's drive-through, where a cashier, (John,) exemplified exceptional customer service through empathy. This encounter highlights the profound impact empathy can have, even in brief interactions. Empathy involves understanding and sharing the feelings of others, allowing us to connect on a deeper level. Unlike sympathy, which can create distance, empathy bridges the gap by immersing us in the emotions of others, whether positive or negative. Lyon emphasizes that empathy is not just about acknowledging struggles but also about celebrating successes and joys with others. He identifies three key ways in which empathy shapes communication: it fosters compassion, tailors messages to the recipient's perspective, and enhances the likelihood of genuine connection. By considering the other person’s point of view, we can communicate more effectively and meaningfully, transcending our roles to connect as human beings. Lyon encourages viewers to reflect on their interactions and identify areas where they could apply more empathy. He suggests that if empathy can be practiced even in fast-paced situations like a drive-through, it can be integrated into many aspects of our lives to improve our relationships and professional interactions." },
+                                { title: "Providing & Accepting feedback: Lesson 6", url: "https://www.youtube.com/embed/ZyEgwhS2P08", description: "Handling negative feedback is a critical skill for any leader. In this article, we will explore practical strategies for responding to criticism constructively. First, approach negative feedback with a collaborative mindset. Instead of seeing feedback as a personal attack, align yourself with the feedback giver. This involves adopting a cooperative stance, which can prevent defensive reactions and promote a more productive dialogue. Second, engage the feedback provider in generating potential solutions. Encourage them to propose remedies or work together to outline possible solutions. This approach not only addresses the issue but also fosters problem-solving skills and demonstrates a commitment to collaborative improvement. Next, perform due diligence after the initial feedback session. Gather input from additional sources and review relevant data to gain a comprehensive understanding of the issue. This step ensures that you are addressing real concerns rather than isolated opinions. In practice, aim to resolve approximately one-third of the problems presented. Leaders can typically address and rectify about a third of the issues effectively. Another third may involve explaining the rationale behind current practices, while the remaining third may be beyond your control due to higher-level decisions. Finally, focus on developing upward feedback channels. Since organizations are often designed for top-down communication, it is essential to create avenues for employees to provide feedback. Implement surveys, focus groups, and one-on-one meetings to systematically gather and address feedback, reducing gossip and improving overall communication. By mastering these strategies, you will enhance your leadership effectiveness and maintain credibility within your team. Question of the Day: How do you manage negative feedback in your leadership role?" },
+                                { title: "Providing & Accepting feedback pt 2: Lesson 7", url: "https://www.youtube.com/embed/srY77hwWn_E", description: "Effective communication is pivotal in professional settings, and understanding feedback is key to enhancing it. Feedback refers to the response a listener provides to a speaker's message. This interaction involves a sender, a message, and a receiver, with feedback serving as the receiver's response to the message. For instance, in a tennis match, feedback is akin to the opponent’s return of the ball, allowing the server to gauge the effectiveness of their serve. Feedback is essential for assessing how well a message is received and can guide adjustments to improve communication. In conversations, feedback indicates whether to continue as is or modify the message. This principle is illustrated by comedian Jerry Seinfeld, who relies on audience reactions to refine his jokes. A positive audience response signifies a successful delivery, while a lack of laughter signals the need for revision. Feedback can be verbal or non-verbal. Verbal feedback includes statements like (That makes sense) or brief acknowledgments such as (Uh-huh.) These responses show that the listener is engaged and comprehending the message. Non-verbal feedback includes body language and facial expressions, such as eye contact or a blank stare, which convey the listener’s reaction without words. In daily interactions, positive feedback confirms mutual understanding, allowing the conversation to progress. Negative feedback, on the other hand, indicates that the message is not fully understood, requiring adjustments to ensure effective communication. To leverage feedback for professional growth, actively seek it from colleagues and supervisors. For example, regularly ask for input on your performance or approach to projects. This practice not only demonstrates openness to improvement but also accelerates personal and leadership development. By incorporating feedback, professionals can quickly address areas for improvement and enhance their effectiveness in various roles. Utilizing feedback as a strategic tool can significantly boost your career progression. Reflect on the feedback you receive and consider how it can inform your development. " },
+                                { title: "Providing & Accepting feedback pt 3: Lesson 8", url: "https://www.youtube.com/embed/WArJK3I53RE", description: "Effective communication is essential in any professional setting, and understanding feedback plays a crucial role in enhancing this skill. Feedback, in essence, is the response a listener provides to a speaker's message. This can come in various forms, including verbal and non-verbal cues, which help gauge how well the message is being received and understood. Feedback serves as a powerful tool for improving communication and leadership abilities. When you deliver a message, the receiver's reaction provides insight into whether the message is clear and engaging. For example, a comedian like Jerry Seinfeld relies on audience reactions to refine his performances, using laughter and engagement as indicators to enhance his material. Similarly, in daily conversations, feedback, whether verbal or non-verbal, guides you in adjusting your communication to better connect with your audience. Verbal feedback includes statements or simple affirmations such as (I understand) or (That's clear,) which confirm that the listener is following along. Non-verbal feedback encompasses body language and facial expressions, like nodding or maintaining eye contact, which indicate engagement or confusion. Both types of feedback are invaluable for refining your message and ensuring effective communication. To leverage feedback as a tool for professional development, actively seek it from colleagues and supervisors. Regularly asking for feedback, whether during or after meetings, can accelerate your growth by highlighting areas for improvement. For instance, as a supervisor, soliciting input from faculty can provide insights into your effectiveness and areas where you can enhance your leadership skills. This proactive approach helps identify and address weaknesses more swiftly, contributing to faster personal and professional growth. By viewing feedback as a constructive mechanism rather than a mere critique, you can use it to fine-tune your skills and advance your career. Embrace feedback as a vital element of your professional toolkit, and you will find yourself growing more adept in communication and leadership roles." },
+                                { title: "Teamwork and collaboration groups: Lesson 9", url: "https://www.youtube.com/embed/OI2xSeIGj3Q", description: "Effective teamwork is crucial in fostering a collaborative and productive work environment. Alex Lyon delves into strategies for enhancing your role as a team member, drawing insights from Beebe and Masterson's (Communicating in Small Groups,) a resource linked in the video description. To be recognized as a competent team member, your presence and engagement are fundamental. Consistently attending meetings and actively participating in discussions demonstrate your commitment and reliability. Being present not only reinforces your dedication but also counters any doubts about your role. Trust is another cornerstone of effective teamwork. Emphasizing the importance of mutual trust helps build a supportive environment. Encourage trust within the team by affirming its value, but be cautious not to overuse phrases like “trust me,” as it may diminish your credibility. Open communication about your tasks is vital. Instead of working in isolation, regularly update your team on your progress. This transparency shows that you are actively contributing and keeps everyone informed. Clarity in communication is equally important. Avoid excessive use of jargon and abbreviations that may obscure your message. Clear, straightforward communication ensures that all team members understand your points and can engage effectively. Active listening is a key trait of an effective team member. Paying close attention to others’ contributions fosters better understanding and collaboration. Additionally, forming connections beyond work tasks enriches team relationships. Engage with colleagues on a personal level to build a more cohesive team. Injecting a sense of humor and positivity into interactions can greatly enhance team dynamics. A light-hearted approach and appropriate humor create a pleasant atmosphere and strengthen bonds among team members. Conversely, there are certain behaviors to avoid. Negativity can undermine team morale, so focus on constructive feedback rather than constant criticism. Mean-spirited humor or derogatory comments can alienate colleagues, as can overt self-promotion. Avoiding expressions of boredom and refraining from seeking undue credit also help maintain a positive and collaborative environment. Reflect on these strategies and consider which areas you might improve upon to enhance your effectiveness as a team member." },
+                                { title: "Nonverbal communication skills: Lesson 10", url: "https://www.youtube.com/embed/6gXhQImzdDE", description: "Navigating the challenge of entering an ongoing conversation can be difficult for many individuals. This article explores three nonverbal techniques that can help you create an opportunity to contribute effectively. I'm Alex Lyon, here to offer professional development tips for enhancing your participation in meetings. When a conversation is moving swiftly and you find it hard to interject, there are several strategies you can use to make space for your input. One effective approach is to subtly raise a single finger. This gesture signals that you have a point to make without fully interrupting the flow. It serves as a gentle indication that you wish to contribute soon. Another technique involves leaning forward slightly and making an audible inhale. Though it might seem unusual, this action mimics the natural behavior of individuals preparing to speak. During a trial with colleagues, this method successfully prompted others to pause and acknowledge my readiness to contribute, thus creating a space for my input. A third strategy is to focus your attention on the current speaker, nodding more emphatically, and making small verbal acknowledgments such as (uh-huh) or (oh.) These nonverbal cues signal your intention to speak as the current speaker concludes their point, thus facilitating a smoother transition for your contribution. By employing these nonverbal strategies, you can effectively navigate conversations and enhance your participation in meetings. I hope you find these tips useful in your next professional setting." }]
+                        },
+
+                        {
+                            title: "Networking",
+                            lessons: [
+                                { title: "Why networking is important: Lesson 1", url: "https://www.youtube.com/embed/i-mlsfAVz2M", description: "Your network significantly influences your net worth, and developing a strong network is crucial for business success and income growth. Drawing from Patrick Dang's experience in sales, entrepreneurship, and content creation, he have encountered various individuals across different levels, and he want to share the strategies that have helped him build a valuable network. Before you start connecting with others, it's essential to focus on yourself. Consider who you want to be and what values you want to embody. Many people drift through life without consciously defining their identity or goals, often mirroring those around them. However, with determination and effort, you can shape yourself into the person you aspire to be. Regularly reassess your personal vision and align your actions with your core values. Once you have a clear sense of who you want to be, carefully select the people you spend time with. The influence of those around you is powerful, and you naturally adopt the habits of your closest companions. Surround yourself with individuals who inspire and challenge you to grow in areas that matter to you, whether it's fitness, business, or personal development. It's also crucial to be mindful of where these influential people congregate. Attending industry events, conferences, and gatherings where like-minded individuals are present can significantly increase your chances of forming meaningful connections. Sometimes, proximity alone can open doors to opportunities you hadn't anticipated. However, networking isn't just about being present; it's about offering value. Identify what unique skills or expertise you bring to the table and use that to build relationships. Whether you're skilled in content creation, marketing, or another area, offering your talents can help you establish credibility and attract people who recognize your value. By defining your identity, choosing your circle wisely, positioning yourself in the right places, and providing value, you can effectively build a network that enhances your business and personal growth." },
+                                { title: "Power of your current network: Lesson 2", url: "https://www.youtube.com/embed/rW-Ui6j60AM", description: "Networking is a powerful tool, yet many people underestimate the vastness of their networks. Your network extends far beyond those you know personally. It includes everyone they know, and so on, creating a web of connections that can reach hundreds of thousands of people. This expansive network is full of potential opportunities, but to leverage it effectively, you must approach it strategically. When seeking help from your network, specificity is key. A general request, such as asking for an introduction to someone in a broad industry, places the burden on the person you're asking, making them less likely to assist. However, a well-researched, targeted request shows that you’ve done your homework and are serious about your intentions. This kind of inquiry is not only easier for the person to fulfill but also more likely to result in a meaningful connection. For example, rather than vaguely asking for a connection to a venture capitalist, explain your relevant experience and the specific person you wish to meet, based on shared interests or connections. This level of detail makes it simple for someone to facilitate the introduction, increasing the chances of success. It's also important to show appreciation for the assistance you receive. After a connection is made, follow up with the person who helped you, informing them of the outcome and expressing your gratitude. This courtesy not only strengthens the relationship but also keeps the door open for future support. Neglecting to do so can lead to a loss of goodwill, potentially closing off future opportunities. Staying connected and showing appreciation ensures that your network remains a valuable resource throughout your career." },
+                                { title: "How to make use of your network: Lesson 3", url: "https://www.youtube.com/embed/SIXrUQgR2cY", description: "Building strong work relationships is essential for both personal and professional growth. Positive interactions with colleagues create a more enjoyable and productive work environment, where positivity becomes contagious. By fostering these connections, you can inspire your coworkers to strive for excellence and contribute more effectively to the team. Taking the time to understand your colleagues and managers can lead to significant career advancement. To begin, it’s important to broaden your network and not just stick to the same group. Reaching out to individuals from different departments can provide new insights and potentially open doors to new opportunities. Whether it's over lunch, during a virtual meeting, or while volunteering, finding the right time to connect is crucial. Consider the schedules of others and be mindful of when it's appropriate to engage in conversation. When building relationships, asking specific questions can help deepen your understanding of your colleagues. Inquire about their roles, work preferences, and personal interests. This shows genuine interest and helps you connect on a more meaningful level. Active listening is another key component; it involves focusing intently on what others are saying, which can strengthen trust and improve communication. Remembering previous conversations is a powerful way to show that you value the relationship. Following up on past discussions demonstrates that you are attentive and care about the relationship's growth. Additionally, asking for feedback is a valuable tool for both personal development and relationship building. It shows that you are committed to improving and are open to constructive criticism. By actively engaging in these practices, you can create a supportive and collaborative work environment where everyone feels valued and motivated to succeed." },
+                            ]
+                        },
+                        {
+                            title: "Negotiation",
+                            lessons: [
+                                { title: "Negotiation intelligence: Lesson 1", url: "https://www.youtube.com/watch?v=yH5ChB7awcM", description: "In the realm of negotiation, the ability to anticipate and prepare for what you may be asked is crucial for success. Negotiation is an inherent part of various situations, whether it’s asking for a raise, bargaining in a market, or conducting an interview. Joe Navarro, a former FBI agent and expert in body language, emphasizes the importance of structured planning before engaging in any negotiation. A successful negotiation follows a specific pattern, consisting of the assessment, engagement, and transactional phases. Each phase plays a vital role, and failure in any one of them can lead to prolonged or ineffective negotiations. Preparation involves clearly defining your objectives, understanding your audience, and anticipating potential responses. Navarro highlights that effective negotiation is not just about the immediate interaction but rather about thorough preparation that happens beforehand. For instance, in law enforcement, engaging with individuals often requires mirroring their behavior to create a non-threatening environment. By assessing both the context and the individual, and by carefully managing the engagement process, the chances of achieving a positive outcome in the transactional phase increase significantly. Additionally, Navarro underscores the strategic use of time, suggesting that understanding when to engage or remain silent can dramatically affect the negotiation's outcome. In challenging situations, such as dealing with individuals who resist or harbor strong emotions, allowing them to vent can eventually lead to a state of entropy, where their energy is dissipated, making them more amenable to cooperation. Navarro's experience in negotiating with a difficult subject illustrates how a methodical approach, grounded in empathy and patience, can turn a seemingly impossible situation into a successful resolution. Ultimately, effective negotiation is about human interaction, careful assessment, and strategic planning, allowing one to guide the conversation toward a desired outcome while maintaining professionalism and empathy." },
+                                { title: "Negotiation is fair: Lesson 2", url: "https://www.youtube.com/embed/PKz4pDm1e90", description: "Learn essential public speaking skills to engage your audience and make impactful presentations. Negotiation is a vital skill in professional settings, often misunderstood as merely a tactic to gain the upper hand. However, it’s important to recognize that negotiation is integral to many roles, involving daily interactions with colleagues, suppliers, customers, and partners. The goal of negotiation is not to dominate but to reach an agreement that is fair and beneficial to all parties involved. Understanding negotiation as a process helps demystify it. This process involves several steps that, when followed, can lead to successful outcomes. The first step, preparation, involves setting clear goals, gathering relevant information, and planning your approach. The opening phase is where the actual negotiation begins, laying the groundwork for the discussion. Bargaining, often seen as the heart of negotiation, is where offers and concessions are exchanged to find common ground. The closing step finalizes the agreement, ensuring both sides are satisfied with the terms. Follow-up is crucial, as it involves implementing the agreed terms and maintaining positive relationships. Negotiation is a fundamental aspect of a professional’s role, not just in securing deals but in fostering collaboration and fairness. Embracing negotiation as a process and honing this skill can significantly enhance one’s effectiveness in any leadership or managerial position." },
+                                { title: "Negotiating as a team: Lesson 3", url: "https://www.youtube.com/embed/UyLq0MsSvv0", description: "In negotiation, the power of teamwork cannot be overstated. Having a team alongside you brings significant advantages that can enhance the effectiveness of your negotiation strategy. A key benefit of team negotiation is the distribution of responsibilities. With a team, one member can focus on taking comprehensive notes, while another might observe nonverbal cues from the opposing party, offering insights that could be pivotal. Additionally, a team member can quickly conduct research when specific information is needed, ensuring that the negotiation stays on track. The success of team negotiation hinges on the coherence and coordination of the team. Each member should clearly understand their role, the goals of the negotiation, and the agenda of the organization. Thorough preparation and a detailed briefing are essential to ensure that everyone is aligned and ready to contribute effectively. Critical roles within a negotiating team include the lead negotiator, who is responsible for making decisions and agreements, and whose authority is paramount in the room. Supporting roles such as the note-taker, observer, and advisor are equally vital. The note-taker ensures accurate documentation, the observer focuses on the dynamics and nonverbal signals, and the advisor provides expertise in specific areas such as finance, operations, or legal matters. It's important not to overwhelm the negotiation with too large a team but to ensure that all necessary expertise is represented. The team must act as a unified entity, well-prepared and well-briefed, to navigate the complexities of negotiation effectively." },
+                                { title: "How to follow up a Negotiation [reconfirmation]: Lesson 4", url: "https://www.youtube.com/embed/ln5DTgcUg1c", description: "After completing the four stages of negotiation, the next crucial step is the follow-up, which is essential for ensuring the success of the negotiation. First, confirm the agreements in writing and share them as a record, not for further discussion. It is important to document what has been agreed upon so both parties have a clear reference. Next, implement any actions you committed to and remind your colleagues of their responsibilities to manage the process effectively. Additionally, inform relevant stakeholders within your organization about the agreement and its terms if necessary. Acknowledging the contributions of your team is also important—thank those involved in the negotiation for their efforts. Extending gratitude to the other party is another courteous step. A polite note expressing your appreciation for the negotiation process can help strengthen the relationship. Lastly, use this follow-up to build and nurture the relationship, paving the way for smoother and more successful negotiations in the future. Effective follow-up is key to solidifying agreements and fostering long-term partnerships." },
+                                { title: "1st step: preparing for a Negotiation: Lesson 5", url: "https://www.youtube.com/embed/Adr9STSP2FI", description: "ffective negotiation begins with thorough preparation, setting the stage for a successful outcome. The initial focus should be on understanding your ultimate goals—what you want to achieve from the negotiation. Clarify your objectives by considering the results you desire, the resources you are willing to exchange, and the conditions you wish to set or are willing to accept. Utilizing the SMART framework—specific, meaningful, achievable, responsible, and time-bound—can help refine these objectives. Specificity is crucial in defining your goals, while ensuring they are meaningful prevents wasted effort. Achievability requires realistic expectations based on research. Responsibility ensures that the outcomes benefit both your organization and the other party. Lastly, setting a clear timeframe is essential for both the negotiation process and the agreement's duration. Understanding your (walk-away) point, also known as your Best Alternative to a Negotiated Agreement (BATNA), is vital. This concept, introduced by Fisher and Ury in Getting to Yes, helps you identify the minimum acceptable offer. If an offer fails to meet your BATNA, it may be time to exit the negotiation. Creating a comparison between your needs and those of the other party can further define the negotiation parameters. This analysis includes assessing priorities, existing resources, and potential offers from both sides, allowing you to identify areas for trade and agreement. Your opening position should be confident and strategic, setting a high initial expectation. This position frames the negotiation space, with your bottom line and likely acceptable outcomes lying within this range. Comprehensive research forms the backbone of your preparation. Understand the history, people, and context involved, leveraging publicly available information and insights about the other organization. Knowing the culture, internal dynamics, and relevant data can provide significant advantages. Finally, plan the negotiation process, considering options, concessions, and the importance of the long-term relationship. Preparing for the tactical aspects, such as meeting logistics and communication strategies, is crucial for navigating setbacks and ensuring a smooth negotiation flow. In summary, meticulous preparation is key to avoiding poor performance in negotiations. With clear objectives, a well-researched strategy, and a robust plan, you position yourself for a successful outcome." },
+                                { title: "2nd step: Opening a Negotiation: Lesson 6", url: "https://www.youtube.com/embed/TzVSihe5vmA", description: "In the negotiation process, the opening stage is crucial as it lays the foundation for successful bargaining. This phase establishes a shared understanding between both parties, setting the stage for effective communication and agreement. One of the first steps is to make a strong and positive first impression, as this shapes the perception of your professionalism and preparedness. Your appearance, body language, and how you present your materials all contribute to this initial impression. Building rapport is another vital aspect of the opening stage. Establishing a connection helps to humanize the negotiation, making it more difficult for parties to be disrespectful or uncooperative. This also allows you to better understand the other party's behavior and communication style, which is essential for the negotiation that follows. Next, it’s important to clarify the authority of the person you're negotiating with. Knowing the decision-making power of the individual across the table helps you gauge how much weight your discussions carry. Additionally, agreeing on the meeting’s purpose and scope ensures that both parties are aligned on the objectives and process, which includes setting ground rules, such as how notes will be taken and shared. Understanding the desired outcomes of the other party before presenting your own is a strategic move. If their goals are more favorable than anticipated, you can adjust your approach accordingly. However, if your position is likely to surprise them, it may be advantageous to present it early, establishing a strong anchor point for the negotiations. By carefully managing these elements in the opening stage, you set the stage for a more effective and confident negotiation process." },
+                                { title: "3rd step: The bargain: Lesson 7", url: "https://www.youtube.com/embed/4mOK_Z6VbX0", description: "Negotiation is often seen as a conflict, but when approached with good intent and a structured process, it becomes an opportunity to craft agreements that benefit all parties involved. The bargaining phase is the core of negotiation, where participants come together to explore each other’s positions. This stage starts after the initial opening and focuses on articulating desires, fears, and the underlying motivations of both sides. Identifying areas of overlap, or common ground, helps create momentum early on, and focusing on easy wins strengthens collaboration. At the same time, pinpointing sticking points—issues that may prove difficult—allows the parties to address challenges systematically. It's important to approach these with a rational mindset, as anticipating potential obstacles helps to avoid surprises. Building an agreement by resolving easier points first provides a foundation for addressing more contentious issues. Progress is driven by asking thoughtful questions that help reveal the true needs behind stated positions, fostering creativity in finding solutions. When evaluating offers during a negotiation, it’s important to assess whether they are realistic or too good to be true. Any offer that doesn’t meet expectations should prompt a counteroffer, framed as an inquiry rather than a demand. For instance, (If you agree to this, we will offer that) opens the door for collaboration rather than confrontation. Concessions are a natural part of bargaining, but they should never be given without getting something of equal value in return. Gradually reducing the size of concessions helps control the pace of negotiations and prevent overcommitment. Concessions that cost little but are of high value to the other party can be advantageous. Each agreement should be clearly documented, with both parties confirming the terms to avoid misunderstandings. If negotiations stall, taking a break, asking more questions, or moving to a different setting can offer new perspectives. Returning to the common ground already established helps maintain confidence and keep negotiations on track. By staying respectful, focused, and adaptable, parties can overcome conflicts and reach a final agreement." },
+                                { title: "Before you continue, watch your steps: Lesson 8", url: "https://www.youtube.com/embed/eLmF8Kr2ppA", description: "In negotiation, four primary behaviors can be observed, but only one aligns with integrity: assertive behavior. Assertiveness is the practice of balancing your needs with those of the other party. It is a respectful approach that values both your own desires and the desires of others. Assertive negotiators confidently express their thoughts, make clear requests, and are prepared to offer fair exchanges. This behavior fosters collaboration and helps secure the best possible outcome for all involved. In contrast, aggressive behavior prioritizes winning at any cost. It is characterized by arrogance, intolerance, and a focus on blame, which can damage relationships and lead to regretful agreements. Passive behavior, on the other hand, is driven by a fear of confrontation, often resulting in giving away more than intended and compromising one's own interests. This approach lacks the confidence to say (no) and fails to protect one's rights. Lastly, passive-aggressive or manipulative behavior is a deceptive form of aggression, often involving guilt-tripping, sarcasm, and blame-shifting. This behavior undermines trust and hinders productive negotiation. For effective and ethical negotiation, assertiveness is key. By being open, direct, and responsible, you can achieve successful outcomes while maintaining respect for all parties involved. " },
+                                { title: "5 Strategies that can help you during your bargain Negotiation: Lesson 9", url: "During the bargaining phase of a negotiation, five key strategies can be employed, as identified by Kenneth Thomas and Ralph Killman. These strategies are based on two critical dimensions: assertiveness, or the concern for the negotiation's outcome, and cooperation, the concern for the relationship between the parties. One approach is the competing strategy, where the outcome is prioritized over the relationship. This is ideal for one-off transactions where achieving the best result for your organization is crucial. However, if maintaining a long-term relationship is essential, competing may not be the best choice, as it can damage future negotiations. At the opposite end is the accommodating strategy, where the relationship takes precedence over the outcome. This might involve accepting less favorable terms to build a stronger long-term relationship, such as offering services at a reduced cost to secure a reliable partner. In some cases, avoiding the negotiation altogether may be the best option. If neither the outcome nor the relationship holds significant value, it may be more efficient to skip negotiations and make a straightforward deal. Compromise is another strategy, suitable when both the outcome and the relationship are important but not critical. In a compromise, both parties agree to make concessions, ensuring that the deal is perceived as fair, with each side giving up something of equal value. Finally, collaboration is the strategy of choice when both the outcome and the relationship are of paramount importance. Unlike compromise, collaboration involves both parties working together to achieve the best possible outcome for both sides. This strategy requires a significant investment of time and effort but can lead to a mutually beneficial result. Each strategy has its place in negotiation, and the choice depends on the specific circumstances of the negotiation. Whether competing, accommodating, avoiding, compromising, or collaborating, understanding these strategies can lead to more effective and successful negotiations." },
+                                { title: "The scope for agreement: Lesson 10", url: "https://www.youtube.com/embed/cb1Bf09p2eg", description: "In the world of business negotiations, understanding the concept of the (scope for agreemen) is crucial. Consider a scenario involving two influential business owners negotiating the sale of a company. Despite their efforts, negotiations stalled, with only the lawyers benefiting financially. In a pivotal moment, one negotiator suggested a unique approach. They proposed finding a trusted third party and each submitting a sealed envelope: one containing the lowest acceptable sale price, the other the highest price willing to be paid. The arbiter, tasked only with determining if an agreement was possible, concluded that the gap between their offers was insurmountable, saving them time and legal fees. This story illustrates a fundamental principle in negotiation: identifying the scope for agreement. Visualize this as two overlapping circles—one representing all possible agreements you would accept, the other representing those your counterpart would accept. The overlap between these circles is where an agreement is possible. If no overlap exists, an agreement is unattainable. In practice, negotiators often work within a perceived scope for negotiation, which may differ from the actual scope. It's essential to recognize when the perceived scope is limited and to test whether an agreement is truly possible. Understanding these dynamics allows for more efficient and effective negotiations, avoiding wasted time and resources." },
+                            ]
+                        }
+                    ]
+                }
+            };
+
+            // Event listener for course item click
+            courseItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const courseId = item.getAttribute('data-course-id');
+                    const course = courses[courseId];
+
+                    if (course) {
+                        // Hide the course item
+                        item.style.display = 'none';
+
+                        // Populate the content list (left side)
+                        contentList.innerHTML = ''; // Clear previous content
+                        course.modules.forEach((module, moduleIndex) => {
+                            const moduleElement = document.createElement('div');
+                            moduleElement.classList.add('module');
+                            moduleElement.innerHTML = `<h3>${module.title}</h3>`;
+
+                            module.lessons.forEach((lesson, lessonIndex) => {
+                                const lessonElement = document.createElement('div');
+                                lessonElement.classList.add('lesson');
+                                lessonElement.innerHTML = `
+                            <p>${lesson.title}</p>
+                        `;
+                                lessonElement.addEventListener('click', () => {
+                                    videoContent.innerHTML = `
+                                <iframe width="100%" height="400px" src="${lesson.url}" frameborder="0" allowfullscreen></iframe>
+                                <p>${lesson.description}</p>
+                            `;
+                                });
+
+                                moduleElement.appendChild(lessonElement);
+                            });
+
+                            contentList.appendChild(moduleElement);
+                        });
+
+                        // Display the first module intro video in the video content area
+                        if (course.modules[0].intro) {
+                            videoContent.innerHTML = `<iframe width="100%" height="400px" src="${course.modules[0].intro}" frameborder="0" allowfullscreen></iframe>`;
+                        }
+
+                        // Display the course content wrapper
+                        courseContentWrapper.style.display = 'flex';
+                    }
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+<style>
+    /* Global Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+        margin-top: 100px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .logo1 {
+        background-image: url("logo1.svg");
+        background-size: cover;
+        width: 70px;
+        height: 70px;
+    }
+
+    header {
+        background: #333;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-bottom: 3px solid hwb(140 4% 13%);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+
+    }
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    header nav {
+        display: flex;
+        width: 100%;
+    }
+
+    header ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    header ul li {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    header ul li.right {
+        margin-left: auto;
+    }
+
+    header ul li.right .lang {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        /* Ensure the content inside is aligned center */
+    }
+
+    header ul li.right .btn1x {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        /* Add some space between the chat icon and profile picture */
+    }
+
+    header ul li.middle {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    header ul li.middle a {
+        margin: 0 10px;
+    }
+
+    header ul li.middle :hover {
+        color: hwb(140 4% 13%);
+    }
+
+    .profile-picture img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    /* Middle navigation items */
+    nav ul li.middle a {
+        margin-right: 10px;
+    }
+
+    nav ul li.right {
+        display: flex;
+        align-items: center;
+
+    }
+
+
+
+    .profile-picture img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: 15px;
+    }
+
+    /* Main Content */
+    main {
+        padding: 50px 0;
+    }
+
+    /* Course List */
+    .course-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .course-item {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 50px;
+        width: calc(33.333% - 20px);
+        min-width: 250px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .course-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .course-item h2 {
+        font-size: 1.5rem;
+        color: #000000;
+        margin-bottom: 15px;
+    }
+
+    .course-item p {
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    /* Course Content */
+    .course-content {
+        margin-top: 40px;
+    }
+
+    .course-content h2 {
+        font-size: 2rem;
+        color: hwb(140 4% 13%);
+        margin-bottom: 20px;
+    }
+
+    .module {
+        margin-bottom: 40px;
+    }
+
+    .module h3 {
+        font-size: 1.75rem;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .module-intro,
+    .lessons .lesson {
+        margin-bottom: 20px;
+    }
+
+    .lessons .lesson p {
+        color: #000;
+        /* Ensure description text is black */
+    }
+
+      /* Footer styles */
+      footer {
+        background: #333;
+        color: #fff;
+        padding: 10px 0;
+        border-top: 3px solid hwb(140 4% 13%); /* Example color, adjust as needed */
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+    }
+
+    .footer-container section {
+        margin-right: 20px;
+    }
+    
+.footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+
+    }
+
+    .footer-container section {
+        margin-right: 20px;
+    }
+  /* Responsive styles */
+  @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+        }
+
+        .footer-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-container section {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+    .course-content-wrapper {
+        display: none;
+        /* Hidden by default, will be shown after clicking a course */
+        flex-direction: row;
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .content-list {
+        flex: 1;
+        max-width: 500px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+
+    .content-list h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .content-list h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    /* Lesson Content */
+    .lesson {
+        margin-bottom: 15px;
+    }
+
+    .lesson p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    .lesson-description {
+        margin-top: 5px;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .lesson-item {
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .lesson-item h4 {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .lesson-item:hover {
+        color: hwb(140 4% 13%);
+    }
+
+    .video-content {
+        flex: 3;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+</html>

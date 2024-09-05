@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>GameHub</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Search games...">
+    </div>
+  </header>
+  <main>
+    <section id="featured-games">
+      <h2>Featured Games</h2>
+      <div class="carousel">
+        <div class="carousel-item">Game 1</div>
+        <div class="carousel-item">Game 2</div>
+        <div class="carousel-item">Game 3</div>
+      </div>
+    </section>
+    <section id="all-games">
+      <h2>All Games</h2>
+      <div class="game-list">
+        <div class="game-card">
+          <h3>Game Title</h3>
+          <p>Game description...</p>
+          <button>Play Now</button>
+        </div>
+        <!-- More game cards -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 GameHub. All rights reserved.</p>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff6347;
+}
+
+.search-bar {
+  margin-top: 10px;
+}
+
+.search-bar input {
+  padding: 5px;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+}
+
+main {
+  padding: 80px 20px 20px;
+  background: linear-gradient(to bottom right, #ff6347, #ff4500);
+  color: #fff;
+}
+
+#featured-games {
+  margin-bottom: 20px;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-item {
+  min-width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+#all-games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.game-card {
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const carouselItems = document.querySelectorAll('.carousel-item');
+  let currentIndex = 0;
+
+  function showCarouselItem(index) {
+    carouselItems.forEach((item, i) => {
+      item.style.transform = `translateX(${(i - index) * 100}%)`;
+    });
+  }
+
+  function nextCarouselItem() {
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    showCarouselItem(currentIndex);
+  }
+
+  setInterval(nextCarouselItem, 3000);
+  showCarouselItem(currentIndex);
+});
+
+// Hover effect for game cards
+document.querySelectorAll('.game-card').forEach(card => {
+  card.addEventListener('mouseover', () => {
+    card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+  });
+  card.addEventListener('mouseout', () => {
+    card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+  });
+});
+
+</script>
+</html>

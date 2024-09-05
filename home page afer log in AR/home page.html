@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher Jobs-Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="../home page afer log in AR/home page.html"><div class="logo1"></div></a></li>
+                    <li><a href="../home page afer log in AR/home page.html"><h1>Asher Jobs</h1></a></li>
+                    <li class="middle">
+                        <a href="../home page afer log in AR/home page.html">الصفحة الرئيسية</a>
+                        <a href="#">الدورات التدريبية</a>
+                        <a href="#">الوظائف</a>
+                        <a href="#">تحليل البيانات</a>
+                        <a href="#">صفحة الملف الشخصي</a>
+                    </li>
+                    <li class="right">
+                        <div class="lang">
+                            <a href="#"><h6>AR</h6></a>
+                            <a href="../home page afer log in EN/home page.html"><h6>EN</h6></a>
+                            <div class="btn1x">
+                                <a href="#" class="btn"><i class='bx bx-chat'></i></a>
+                                <div class="profile-picture">
+                                    <img src="path-to-profile-picture.jpg" alt="Profile Picture">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="content">
+        <button id="openPopupButton">ما الذي يدور في ذهنك؟</button>
+        <div id="postPopup" class="post-popup">
+            <span id="closePopupButton" class="close-button">&times;</span>
+            <textarea id="postContent" placeholder="ما الذي يدور في ذهنك؟"></textarea>
+            <div class="image-upload">
+                <button id="imageUploadButton">إضافة صورة</button>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="image-preview-container">
+                <img id="imagePreview" src="" alt="Image Preview" style="display: none;">
+                <button id="deleteImageButton" style="display: none;">حذف الصورة</button>
+            </div>
+            <button id="postButton">نشر</button>
+        </div>
+        <div id="postsContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
