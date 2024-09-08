@@ -15,7 +15,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
-    background: url('Image1.jpg') no-repeat;
+    background: url('Image1.png') no-repeat;
     background-size:200%;
     background-position: center;
     display: flex;
