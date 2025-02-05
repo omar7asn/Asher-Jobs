@@ -1,0 +1,205 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+  background-color: #d5a273;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Main Container */
+main {
+  max-width: 700px;
+  margin: 30px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+  direction: rtl;
+  text-align: right; /* Ensures the text aligns to the right */
+}
+
+
+input, textarea, button {
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input {
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: all 0.3s ease;
+  direction: rtl;
+}
+/* Input Focus */
+input:focus, textarea:focus {
+  border-color: #d5a273;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Textarea Specific Styles */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* File Input */
+input[type="file"] {
+  border: none;
+}
+
+/* Submit Button */
+button {
+  background-color: #d5a273;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ce9765;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  main {
+      margin: 20px;
+      padding: 20px;
+  }
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 150px; /* Adjust size as needed */
+  height: auto;
+  border-radius: 8px; /* Optional: rounded corners for a modern look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add depth */
+}
+
+/* Confirmation Box Styles */
+.confirmation-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  z-index: 1000;
+}
+
+.confirmation-box h2 {
+  color: #d5a273;
+  margin-bottom: 20px;
+}
+
+.order-number {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #333;
+}
+
+.order-number span {
+  font-weight: bold;
+  color: #d5a273;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.upload-status {
+  text-align: center;
+  padding: 2rem;
+  background: #1a1a1a;
+  border-radius: 8px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.error-icon {
+  font-size: 2rem;
+  color: #ff4444;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
