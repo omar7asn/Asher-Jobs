@@ -1,81 +1,52 @@
+require('dotenv').config();
+const { google } = require('googleapis');
 const express = require('express');
 const multer = require('multer');
-const { MongoClient } = require('mongodb');
-const AWS = require('aws-sdk');
-const dotenv = require('dotenv');
-const path = require('path');
-
-dotenv.config();
+const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const upload = multer();
 
-// S3 configuration
-const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION,
+// Google Sheets setup
+const auth = new google.auth.GoogleAuth({
+  credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
-// Multer setup
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const SPREADSHEET_ID = process.env.SHEET_ID;
 
-// MongoDB setup
-const mongoUri = process.env.MONGO_URI;
-let db;
-
-MongoClient.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(client => {
-        db = client.db('orders');
-        console.log('Connected to MongoDB');
-    })
-    .catch(err => console.error('Failed to connect to MongoDB', err));
-
-// Middleware
+app.use(cors());
 app.use(express.static('public'));
-app.use(express.json());
 
-// Routes
-app.post('/orders', upload.single('photo'), async (req, res) => {
+app.post('/api/orders', upload.single('photo'), async (req, res) => {
+  try {
     const { name, address, phone, description } = req.body;
+    const photo = req.file ? 'Photo Uploaded' : 'No Photo';
 
-    let photoUrl = null;
-    if (req.file) {
-        const params = {
-            Bucket: process.env.AWS_BUCKET_NAME,
-            Key: `${Date.now()}_${path.basename(req.file.originalname)}`,
-            Body: req.file.buffer,
-            ContentType: req.file.mimetype,
-        };
+    const sheets = google.sheets({ version: 'v4', auth });
 
-        try {
-            const uploadResult = await s3.upload(params).promise();
-            photoUrl = uploadResult.Location;
-        } catch (err) {
-            return res.status(500).json({ error: 'Failed to upload photo to S3' });
-        }
-    }
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'Sheet1!A:E',
+      valueInputOption: 'USER_ENTERED',
+      resource: {
+        values: [[
+          new Date().toISOString(), // Timestamp
+          name,
+          address,
+          phone,
+          description,
+          photo
+        ]]
+      }
+    });
 
-    const order = { name, address, phone, description, photoUrl };
-    try {
-        const result = await db.collection('orders').insertOne(order);
-        res.status(200).json({ orderId: result.insertedId });
-    } catch (err) {
-        res.status(500).json({ error: 'Failed to save order to database' });
-    }
+    res.status(200).json({ message: 'Order saved successfully' });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Failed to save order' });
+  }
 });
 
-app.get('/orders', async (req, res) => {
-    try {
-        const orders = await db.collection('orders').find().toArray();
-        res.json(orders);
-    } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch orders' });
-    }
-});
-
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
