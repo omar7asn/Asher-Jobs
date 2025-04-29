@@ -1,0 +1,2790 @@
+/* ===== Design System Variables ===== */
+:root {
+  /* Colors */
+  --primary: #00a884;
+  --primary-dark: #007f6d;
+  --primary-light: #fff;
+  --surface: #ffffff;
+  --background: #fff;
+  --text-primary: #1a1d1f;
+  --text-secondary: #6f767e;
+  --border: #e4e4e4;
+  --error: #ff4e4e;
+  --success: #4caf50;
+  --warning: #ffb300;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* ===== Base Styles ===== */
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Auth Pages (Sign Up/Sign In) ===== */
+#login-section,
+#register-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface) 100%);
+}
+
+.auth-container {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.auth-header h1 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.auth-header p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.input-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.input-group input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-light);
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.auth-actions {
+  margin-top: var(--spacing-xl);
+}
+
+.auth-actions button {
+  width: 100%;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-actions button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.auth-actions button:active {
+  transform: translateY(0);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.auth-switch a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: var(--spacing-xs);
+}
+
+.error-message {
+  background: #fff0f0;
+  color: var(--error);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-md) 0;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* ===== Chat Page ===== */
+#chat-section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--background);
+}
+
+.chat-header {
+  background: var(--surface);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.chat-header h2 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin: 0;
+}
+
+#chat-messages {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100px);
+}
+
+.message {
+  position: relative;
+  margin-bottom: 20px;
+  max-width: 65%;
+  min-width: 120px;
+  padding: 8px 12px;
+  border-radius: 7.5px;
+  font-size: 14.2px;
+  line-height: 1.3;
+}
+
+/* LTR (English) messages */
+.message.ltr {
+  text-align: left;
+  direction: ltr;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+/* RTL (Arabic) messages */
+.message.rtl {
+  text-align: right;
+  direction: rtl;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Adjust message content for RTL */
+.message.rtl .message-options {
+  left: 5px;
+  right: auto;
+}
+
+.message.rtl .reactions {
+  left: 5px;
+  right: auto;
+}
+
+/* Ensure proper alignment for message content */
+.message.rtl strong {
+  display: block;
+  text-align: right;
+}
+
+.message.ltr strong {
+  display: block;
+  text-align: left;
+}
+
+/* Adjust reply preview for RTL */
+.message.rtl .reply-meta {
+  text-align: right;
+}
+
+.message.rtl .reply-preview-message {
+  text-align: right;
+  border-left: none;
+  border-right: 2px solid #ddd;
+  padding-right: 10px;
+  padding-left: 0;
+}
+
+/* Ensure proper alignment for message options in RTL */
+.message.rtl .message-options button {
+  margin-left: 4px;
+  margin-right: 0;
+}
+
+/* Adjust reactions for RTL */
+.message.rtl .reactions {
+  flex-direction: row-reverse;
+}
+
+.message.sent {
+  background: var(--primary);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.message.received {
+  background: var(--surface);
+  margin-right: auto;
+  border-bottom-left-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.message-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  opacity: 0.8;
+}
+
+.message-input {
+  background: var(--surface);
+  padding: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-sm);
+  border-top: 1px solid var(--border);
+}
+
+.message-input input {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-base);
+  transition: all 0.2s ease;
+}
+
+.message-input input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.message-input input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.message-input button {
+  background: var(--primary);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.message-input button:hover {
+  background: var(--primary-dark);
+}
+
+/* ===== Admin Panel ===== */
+#admin-section {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.admin-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1f2937;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+.admin-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-right: -10px;
+}
+
+/* Custom scrollbar styles */
+.admin-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.admin-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.admin-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.admin-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Add user form styles */
+.add-user-form {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Admin table styles */
+.admin-table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+/* Ensure the table header stays visible while scrolling */
+.admin-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
+  z-index: 5;
+}
+
+/* Admin Table Container */
+.admin-table-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  table-layout: fixed;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  word-wrap: break-word;
+}
+
+.admin-table th {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.admin-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.admin-table tbody tr:nth-child(even):hover {
+  background-color: #f3f4f6;
+}
+
+.admin-table .actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 200px;
+}
+
+.admin-table .action-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .admin-container {
+    padding: 15px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.75rem 1rem;
+  }
+  
+  .admin-table .action-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 12px;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 10px;
+  }
+
+  .admin-table-container {
+    padding: 0.5rem;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.5rem;
+    font-size: 13px;
+  }
+  
+  .admin-table .actions-cell {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .admin-table .action-btn {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+/* Add smooth scrolling for the table container */
+.admin-table-container {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.admin-table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.admin-table-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .auth-container {
+    margin: var(--spacing-md);
+    padding: var(--spacing-lg);
+  }
+  
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .message {
+    max-width: 85%;
+  }
+  
+  .message-input {
+    flex-direction: column;
+  }
+  
+  .message-input input {
+    width: 100%;
+  }
+  
+  .admin-card {
+    padding: var(--spacing-md);
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* --- Existing CSS --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  height: 100vh; /* Ensure body takes full viewport height */
+  display: flex; /* Prepare body for centering/layout */
+  justify-content: center; /* Center container horizontally */
+  align-items: center; /* Center container vertically */
+}
+
+.ad-space {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 15%; /* Adjusted width */
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  color: #757575;
+  z-index: 100;
+}
+
+.ad-left {
+  left: 0;
+}
+
+.ad-right {
+  right: 0;
+}
+
+.container {
+  width: 70%;
+  max-width: 1000px;
+  height: 92vh; /* Reduced from 90vh for better spacing */
+  margin: 2vh auto; /* Add vertical margin */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  z-index: 200;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 95%;
+  }
+  .ad-space {
+      width: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  body {
+    height: auto;
+    display: block;
+  }
+  
+  .modal-content {
+    max-width: 95%;
+    max-height: 90vh;
+  }
+}
+
+.content-section {
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  background-color: transparent;
+  flex-grow: 1; /* Allow sections to fill container */
+  padding: 0; /* Ensure no padding */
+  overflow: hidden; /* Sections should manage their own overflow */
+}
+
+/* Make sure login/register/verify can scroll if content overflows */
+#login-section,
+#register-section,
+#verify-section {
+  align-items: center;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  text-align: center;
+  padding: 0; /* Changed from 20px to 0 */
+  overflow-y: auto; /* Allow scrolling if form is too long */
+}
+
+#login-section input,
+#register-section input,
+#verify-section input,
+button {
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1em;
+  width: 80%; /* Control width */
+  max-width: 300px; /* Max width */
+}
+
+/* Add button reset */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Specific button styles */
+.message-input button, 
+.admin-user button,
+#file-preview-send {
+  /* Your existing button styles */
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #00a884;
+  color: white;
+}
+
+/* --- Key Changes for Chat Section --- */
+
+#chat-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  height: 60px; /* Fixed header height */
+  flex-shrink: 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+#chat-messages {
+  flex: 1;
+  min-height: 0; /* Crucial for proper scrolling */
+  padding: 0 20px 10px 20px;
+  overflow-y: auto;
+  background: #efeae2;
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #efeae2 100px
+  ); /* WhatsApp-like gradient */
+}
+
+.message-input {
+  height: auto;
+  min-height: 62px;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  background: #f0f2f5;
+  border-top: 1px solid #e9edef;
+}
+
+/* --- End of Key Changes --- */
+
+.message-input input[type="text"] {
+  height: 42px; /* Fixed input height */
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.message-input button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #00a884;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.message {
+  position: relative; /* Add this for proper reaction positioning */
+  margin-bottom: 20px; /* Add space for reactions */
+  max-width: 65%; /* WhatsApp-like max width */
+  min-width: 120px;
+  padding: 8px 12px;
+  border-radius: 7.5px;
+  font-size: 14.2px;
+  line-height: 1.3;
+}
+
+.message strong {
+  font-weight: 600; /* Slightly bolder */
+  color: #333; /* Darker name */
+  display: block; /* Name on its own line */
+  margin-bottom: 2px;
+  font-size: 0.8em; /* Smaller font for name */
+}
+
+/* Style for user's own messages */
+.message:not(.received) {
+  background: #d9fdd3;
+  margin-left: auto;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+/* Style for received messages (add .received class via JS if needed, or style all differently) */
+.message.received {
+  background: #ffffff;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+/* Scrollbar styling */
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 3px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
+
+/* --- Rest of your CSS --- */
+/* (admin styles, file/image styles, modal, reactions, etc.) */
+
+.admin-user {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 12px;
+}
+
+.user-panel {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.admin-user span {
+  flex-grow: 1;
+  margin-right: 10px; /* Add spacing */
+}
+
+.admin-user button {
+  padding: 6px 10px; /* Smaller admin buttons */
+  margin-left: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em; /* Smaller font */
+  width: auto; /* Override general button width */
+  max-width: none; /* Override general button width */
+}
+
+.admin-user button:first-of-type {
+  background-color: #007bff;
+  color: white;
+}
+
+.admin-user button:last-of-type {
+  background-color: #dc3545;
+  color: white;
+}
+
+.user-panel button {
+    width: auto; /* Override general button width */
+    max-width: none; /* Override general button width */
+    padding: 8px 12px; /* Adjust padding */
+}
+
+.file-message, .image-message {
+  display: block; /* Ensure files/images take block space */
+  margin-top: 4px;
+  border-radius: 6px;
+  overflow: hidden; /* Hide overflowing parts */
+}
+
+.image-message {
+  max-width: 300px;
+  max-height: 400px;
+  object-fit: contain;
+  background: white; /* For transparent PNGs */
+  padding: 4px;
+  border: 1px solid #ddd;
+}
+
+.file-message {
+   padding: 8px 12px;
+   background: rgba(0, 0, 0, 0.05); /* Subtle background for file links */
+   color: #000;
+   text-decoration: none;
+   font-size: 0.9em;
+   display: inline-block; /* Make it inline-block */
+}
+.file-message:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#file-preview-body img {
+  max-width: min(100%, 800px);
+  max-height: 70vh;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%; /* Adjusted */
+  max-height: 90%; /* Adjusted */
+  object-fit: contain;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 1001; /* Ensure it's above image */
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+/* Reaction Styles */
+.reactions {
+  position: absolute;
+  bottom: -18px;
+  right: 5px;
+  background: white;
+  border-radius: 12px;
+  padding: 2px 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 4px;
+  font-size: 0.8em;
+  z-index: 5;
+}
+
+.reaction {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  padding: 1px 2px; /* Padding inside reaction */
+}
+
+.reaction:hover {
+  transform: scale(1.15);
+}
+
+.reaction-picker {
+  position: fixed; /* Use fixed to position relative to viewport */
+  background: white;
+  border-radius: 24px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: none; /* Hidden initially */
+  gap: 8px;
+  z-index: 1010; /* High z-index */
+  transform: translate(-50%, -100%); /* Adjust position relative to click */
+  margin-top: -10px; /* Add some space above the click point */
+}
+
+.reaction-emoji {
+  font-size: 1.6em; /* Larger emojis */
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.reaction-emoji:hover {
+  transform: scale(1.25);
+}
+
+/* Message Options */
+.message-options {
+  /* Position options relative to the message content */
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  display: none; /* Hidden by default */
+  gap: 4px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  padding: 3px 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.message:hover .message-options {
+   display: flex; /* Show on hover */
+}
+
+.message-options button {
+  padding: 4px 8px; /* Smaller buttons */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em; /* Smaller font */
+  background-color: #eee;
+  color: #333;
+  transition: background-color 0.2s ease;
+  width: auto; /* Override general button width */
+  max-width: none; /* Override general button width */
+}
+
+.message-options button:hover {
+  background-color: #ddd;
+}
+
+.deleted-message {
+  font-style: italic;
+  color: #777;
+  font-size: 0.9em; /* Match message font size */
+}
+
+/* Ensure file input looks integrated */
+#file-input {
+  /* Hide the default file input */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+/* Style a label as a button for the file input */
+.message-input label[for="file-input"] {
+    padding: 8px 12px; /* Adjust padding */
+    border: none;
+    border-radius: 20px;
+    background-color: #fff; /* Match send button */
+    color: #000;
+    cursor: pointer;
+    font-size: 1em; /* Match text input */
+    display: inline-flex; /* Align items nicely */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    margin: 0; /* Remove default margins */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.message-input label[for="file-input"]:hover {
+    background-color: #e0e0e0;
+}
+
+/* Add a paperclip icon (optional, using FontAwesome or an SVG) */
+.message-input label[for="file-input"]::before {
+ content: '🖇️'; /* Basic emoji, replace with icon font/SVG for better results */
+ margin-right: 5px;
+ font-size: 1.2em;
+}
+
+/* Adjust the send button position slightly */
+.message-input button[onclick="sendMessage()"] {
+    margin-left: 5px; /* Add space between file and send */
+}
+
+/* --- Custom Modal Styles --- */
+
+.modal-overlay {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+}
+
+.modal-box {
+  position: relative;
+  background: var(--bg-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  margin: 1rem;
+}
+
+.modal-box, #custom-alert-overlay,
+#verify-section,
+#file-preview .preview-content {
+  position: relative;
+  margin: 0 auto;
+  top: auto;
+  left: auto;
+  transform: none;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  margin: 20px;
+  max-width: 90%;
+  max-height: 90vh;
+  animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Specific modal adjustments */
+#verify-section {
+  padding: 2rem;
+  text-align: center;
+  min-width: 300px;
+}
+
+#file-preview .preview-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+#custom-alert-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-out;
+}
+
+#custom-alert-box {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s ease-out;
+}
+
+#custom-alert-message {
+  color: var(--text-primary);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.5;
+}
+
+#custom-alert-ok-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#custom-alert-ok-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+#custom-alert-ok-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure proper stacking order */
+#verify-overlay { z-index: 3003; }
+#custom-alert-overlay { z-index: 3500; }
+#file-preview { z-index: 3002; }
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.chat-message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.replies {
+  margin-left: 20px;
+  margin-top: 5px;
+  border-left: 2px solid #ddd;
+  padding-left: 10px;
+}
+
+.reply {
+  margin-bottom: 5px;
+}
+
+/* File Preview Styles */
+#file-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 3002;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#file-preview.active {
+    display: flex;
+}
+
+#file-preview .preview-content {
+    background: white;
+    border-radius: 8px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    max-width: none;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#file-preview-body {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#file-preview-body img,
+#file-preview-body iframe {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+#file-preview-actions {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+#file-preview-send,
+#file-preview-cancel {
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#file-preview-send {
+    background: #00a884;
+    color: white;
+}
+
+#file-preview-cancel {
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* Add this to ensure all modals are centered */
+.modal-overlay, #image-modal, #file-preview {
+    display: none; /* Default hidden state */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 3000;
+}
+
+/* Specific modal content styling */
+#custom-alert-box, .modal-box, #file-preview, #image-modal .modal-content {
+    position: relative;
+    margin: auto;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+/* Fix for image modal */
+#image-modal {
+    z-index: 3001; /* Ensure it's above other modals */
+    background: rgba(0,0,0,0.9);
+}
+
+#image-modal .modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+/* Update verification section to be a modal */
+#verify-overlay .modal-box {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Remove these conflicting rules */
+#verify-section {
+    position: static; /* Remove fixed positioning */
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Add this instead */
+#verify-overlay {
+    z-index: 4000 !important; /* Highest priority */
+}
+
+#verify-overlay .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #666;
+}
+
+#verify-overlay .modal-content {
+    padding: 20px;
+}
+
+#verify-overlay .modal-actions {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+#verify-overlay input {
+    margin: 15px auto;
+    width: 200px;
+    display: block;
+}
+
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-overlay {
+    pointer-events: all;
+}
+
+.modal-box {
+    pointer-events: all;
+    margin: 20px;
+}
+
+/* Add these fixes at the end of the file */
+/* Fix 1: Ensure modal stacking context */
+#verify-overlay {
+    z-index: 4000 !important; /* Highest priority */
+}
+
+#custom-alert-overlay {
+    z-index: 3500;
+}
+
+#file-preview {
+    z-index: 3000;
+}
+
+/* Fix 2: Proper modal display states */
+.modal-overlay {
+    pointer-events: all;
+}
+
+.modal-box {
+    pointer-events: all;
+    margin: 20px;
+}
+
+/* Fix 3: Verification modal specific adjustments */
+#verify-overlay .modal-box {
+    padding: 2rem 1.5rem;
+}
+
+#verify-overlay input {
+    margin: 15px auto;
+    width: 200px;
+    display: block;
+}
+
+#verify-overlay .modal-actions {
+    margin-top: 1rem;
+}
+
+/* Fix 4: Body scroll prevention */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fix 5: Ensure clickability of modal content */
+.modal-box {
+    pointer-events: all;
+    margin: 20px;
+}
+
+.modal-overlay {
+    pointer-events: all;
+}
+
+/* Fix 6: Image modal z-index */
+#image-modal {
+    z-index: 4500; /* Above verification modal */
+}
+
+/* Add modal activation class */
+.modal-overlay.active, 
+#image-modal.active, 
+#file-preview.active {
+    display: flex;
+}
+
+#file-input-label {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#file-input-label input[type="file"] {
+    position: absolute;
+    left: -9999px;
+}
+
+#file-preview .preview-content {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90vh;
+    margin-top: 10vh; /* Push content higher up */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#file-preview-body {
+    max-height: 60vh; /* Limit image height */
+    overflow-y: auto; /* Add scroll if needed */
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#file-preview-actions {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== FINAL MODAL POSITIONING FIX ===== */
+.modal-overlay {
+  align-items: flex-start;
+  padding-top: 20vh;
+}
+
+.modal-content, .preview-content {
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  transform: none;
+  max-height: 60vh;
+  animation: modalSlideDown 0.3s ease-out;
+}
+
+@keyframes modalSlideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Specific modal adjustments */
+#verify-overlay .modal-content {
+  padding: 2rem;
+  min-width: 320px;
+}
+
+#file-preview .modal-content {
+  max-width: 600px;
+  padding: 15px;
+}
+
+#custom-alert-overlay .modal-content {
+  max-width: 400px;
+  padding: 1.5rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding-top: 15vh;
+    align-items: center;
+  }
+  
+  .modal-content, .preview-content {
+    max-height: 70vh;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Standardize scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 3px;
+}
+
+/* Add transition timing */
+button, .reaction, .message-options button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Add to existing preview styles */
+.preview-item {
+  position: relative;
+  margin: 8px;
+  max-width: 150px;
+}
+
+.preview-item img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 2px solid #00a884;
+}
+
+/* Add to preview container */
+.previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin: 10px 0;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Add these fixes to your existing CSS */
+
+/* 1. Preview Container Visibility */
+.previews {
+  display: flex !important; /* Force display */
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin: 10px 0;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 200; /* Ensure above other elements */
+  position: relative; /* Add positioning context */
+}
+
+/* 2. Image Preview Specific Styling */
+.preview-item img {
+  display: block; /* Fix inline spacing */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #00a884;
+  background: white;
+  padding: 4px;
+}
+
+/* 3. Ensure Preview Item Visibility */
+.preview-item {
+  position: relative;
+  margin: 0; /* Remove outer margin */
+  max-width: 150px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 4. Preview Label Styling */
+.preview-item::before {
+  content: "Attachment Preview";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 168, 132, 0.9);
+  color: white;
+  font-size: 0.7em;
+  padding: 2px 4px;
+  z-index: 1;
+}
+
+/* 5. Fix Z-index Hierarchy */
+.message-input {
+  position: relative;
+  z-index: 100; /* Lower than previews */
+}
+
+.previews {
+  z-index: 200; /* Higher than message input */
+}
+
+/* 6. Add Preview Close Button */
+.preview-item .remove-preview {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 12px;
+}
+
+/* 1. Fix Preview Container Positioning */
+.chat-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 62px; /* Minimum height for input */
+}
+
+.previews {
+  order: -1; /* Move previews above input */
+  margin-bottom: 10px;
+  max-height: 300px;
+  z-index: 250; /* Higher than modal z-indexes */
+}
+
+/* 2. Ensure Preview Visibility */
+.previews {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: all 0.3s ease;
+}
+
+/* 3. Fix Image Preview Layout */
+.preview-item {
+  display: inline-flex;
+  flex-direction: column;
+  animation: previewAppear 0.3s ease;
+}
+
+@keyframes previewAppear {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* 4. Adjust Message Input Height */
+.message-input {
+  height: auto;
+  min-height: 62px;
+  flex-shrink: 0;
+}
+
+/* 5. Fix Z-index Hierarchy */
+.previews {
+  position: static; /* Reset positioning */
+  z-index: auto;
+}
+
+/* 6. Add Preview Container Border */
+.previews:not(:empty) {
+  border: 2px solid #00a88433;
+  padding: 15px;
+  margin: 10px 20px;
+}
+
+/* Add/Update these styles in your style.css */
+#image-review-overlay.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  padding: 20px;
+}
+
+#image-review-overlay .modal-box {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90vh;
+  width: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#image-review-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#reviewed-image {
+  max-height: 70vh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.modal-actions {
+  padding: 15px;
+  background: #f8f8f8;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.send-btn, .cancel-btn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.send-btn {
+  background-color: #00a884;
+  color: white;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+}
+
+.send-btn:hover, .cancel-btn:hover {
+  opacity: 0.9;
+}
+
+/* Reply Preview Styles */
+.reply-preview {
+  display: none;
+  padding: 8px 15px;
+  background: #f0f2f5;
+  border-left: 3px solid #00a884;
+  margin: 0 20px 10px 20px;
+  border-radius: 4px;
+}
+
+.reply-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 80%;
+}
+
+.reply-sender {
+  font-weight: 600;
+  font-size: 0.8em;
+  color: #00a884;
+}
+
+.reply-text {
+  font-size: 0.85em;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.reply-cancel {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+/* Reply Message Styling */
+.message.reply {
+  border-left: 3px solid #00a884;
+  margin-left: 15px;
+}
+
+.reply-meta {
+  font-size: 0.8em;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.reply-preview-message {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 6px;
+  margin-bottom: 6px;
+  border-left: 2px solid #ddd;
+}
+
+/* ===== OTP Verification Modal ===== */
+#verify-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+}
+
+#verify-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-out;
+}
+
+#verify-overlay .modal-box {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 400px;
+  margin: 20px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+}
+
+#verify-overlay .modal-content {
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+#verify-overlay h2 {
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm);
+}
+
+#verify-overlay p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-lg);
+  line-height: 1.5;
+}
+
+#verify-overlay input {
+  width: 100%;
+  max-width: 240px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  text-align: center;
+  letter-spacing: 8px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-md) 0;
+  transition: all 0.2s ease;
+  background: var(--surface);
+}
+
+#verify-overlay input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-light);
+  outline: none;
+}
+
+#verify-overlay input::placeholder {
+  letter-spacing: normal;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+#verify-overlay .modal-actions {
+  margin-top: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+#verify-overlay .modal-actions button {
+  width: 100%;
+  max-width: 240px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#verify-overlay .modal-actions button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+#verify-overlay .modal-actions button:active {
+  transform: translateY(0);
+}
+
+#verify-overlay .close-btn {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--background);
+  border: none;
+  color: var(--text-secondary);
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+#verify-overlay .close-btn:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+/* Error state */
+#verify-overlay .error {
+  color: var(--error);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+#verify-overlay .error::before {
+  content: "⚠️";
+  font-size: var(--font-size-base);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #verify-overlay .modal-box {
+    margin: var(--spacing-md);
+    max-height: calc(100vh - 40px);
+  }
+
+  #verify-overlay .modal-content {
+    padding: var(--spacing-lg);
+  }
+
+  #verify-overlay input {
+    font-size: var(--font-size-base);
+    letter-spacing: 6px;
+  }
+}
+
+.header h2 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.user-panel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-left: auto; /* Push to the right side */
+}
+
+#current-user {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-right: var(--spacing-sm);
+}
+
+/* Header Button Styles */
+#logout-btn, #admin-panel-btn {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+#logout-btn {
+  background-color: var(--background);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+#logout-btn:hover {
+  background-color: var(--border);
+}
+
+#admin-panel-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+#admin-panel-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Responsive adjustments for header buttons */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 15px;
+  }
+  
+  #logout-btn, #admin-panel-btn {
+    padding: 5px 10px;
+    font-size: var(--font-size-xs);
+    min-width: 70px;
+  }
+  
+  #current-user {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Logo Styles for Auth Pages */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.auth-logo {
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive adjustments for logo */
+@media (max-width: 768px) {
+  .auth-logo {
+    max-width: 120px;
+  }
+}
+
+/* Admin Table Styles */
+.admin-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 1rem;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-table th {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.admin-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.admin-table tbody tr:nth-child(even):hover {
+  background-color: #f3f4f6;
+}
+
+.admin-table .actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.admin-table .action-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.admin-table .ban-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.admin-table .ban-btn.banned {
+  background-color: #10b981;
+}
+
+.admin-table .delete-btn {
+  background-color: #dc2626;
+  color: white;
+}
+
+.admin-table .promote-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.admin-table .promote-btn.pharmacy {
+  background-color: #1d4ed8;
+}
+
+.admin-table .vip-btn {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.admin-table .action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table .action-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .admin-table th,
+  .admin-table td {
+    padding: 0.75rem 1rem;
+  }
+  
+  .admin-table .action-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 12px;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-table-container {
+    margin: 1rem 0;
+    padding: 0.5rem;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.5rem;
+    font-size: 13px;
+  }
+  
+  .admin-table .actions-cell {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .admin-table .action-btn {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+/* Add smooth scrolling for the table container */
+.admin-table-container {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.admin-table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.admin-table-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ===== Twafor Section Styles ===== */
+.twafor-container {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: 5px;
+    margin-top: 30px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.twafor-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.twafor-item {
+    margin: 0;
+    padding: 0;
+}
+
+.twafor-text {
+    color: var(--text-primary);
+    font-size: 25px;
+    line-height: 1.5;
+    margin: 0 0 var(--spacing-sm);
+    text-align: center;
+}
+
+.twafor-action {
+    margin: 0;
+    text-align: center;
+}
+
+.twafor-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.twafor-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.twafor-button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .twafor-container {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .twafor-text {
+        font-size: var(--font-size-sm);
+    }
+
+    .twafor-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Admin Table Dropdown Styles */
+.actions-cell {
+    position: relative;
+    padding: 0;
+    min-width: 120px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--font-size-sm);
+    transition: all 0.2s ease;
+}
+
+.dropdown-toggle:hover {
+    background: var(--primary-dark);
+}
+
+.dropdown-arrow {
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+}
+
+.dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 8px;
+    display: none;
+    min-width: 150px;
+    z-index: 1000;
+    border: 1px solid var(--border);
+}
+
+.dropdown.active .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: dropdownAppear 0.2s ease;
+}
+
+.dropdown-menu button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    text-align: left;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu button:hover {
+    transform: translateX(2px);
+}
+
+.promote-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.promote-btn:hover {
+    background: var(--primary-dark);
+}
+
+.demote-btn {
+    background: #f59e0b;
+    color: white;
+}
+
+.demote-btn:hover {
+    background: #d97706;
+}
+
+.ban-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.ban-btn:hover {
+    background: #dc2626;
+}
+
+@keyframes dropdownAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure dropdown doesn't get cut off in table */
+.admin-table-container {
+    overflow: visible;
+}
+
+/* Mobile responsiveness for dropdown */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        min-width: 120px;
+    }
+    
+    .dropdown-menu button {
+        padding: 6px 10px;
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Add User Form Styles */
+.add-user-form {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.add-user-form h3 {
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.add-user-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.add-user-form input {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    transition: all 0.2s ease;
+}
+
+.add-user-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-light);
+    outline: none;
+}
+
+.add-user-form input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.add-user-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.add-user-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.add-user-btn:active {
+    transform: translateY(0);
+}
+
+.add-user-btn .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.add-user-btn .spinner.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .add-user-form {
+        padding: var(--spacing-md);
+    }
+    
+    .add-user-form input {
+        padding: var(--spacing-sm);
+    }
+    
+    .add-user-btn {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* VIP User Styles */
+.vip-user {
+    color: #FFD700; /* Golden color */
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.vip-badge {
+    background: #000;
+    color: #FFD700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 4px;
+}
+
+
+
+/* Ensure VIP styling is visible in dark mode */
+.dark-mode .vip-user {
+    color: #FFD700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .vip-badge {
+    background: #000;
+    color: #FFD700;
+    box-shadow: 0 0 4px rgba(255, 215, 0, 0.3);
+}

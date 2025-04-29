@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Chat Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="origin-trial" content="your-origin-trial-token">
+</head>
+<body>
+    <!-- Ad Spaces -->
+    <div class="ad-left ad-space">Ad Space Left</div>
+    <div class="ad-right ad-space">Ad Space Right</div>
+
+    <div class="container">
+        <!-- Login Section -->
+        <div id="login-section" class="content-section">
+            <div class="twafor-container">
+                <ul class="twafor-list">
+                    <li class="twafor-item">
+                        <p class="twafor-text">بتدور على دوا و مش لاقيه خالص؟ إستخدم خدمة توافر من هيئة الدواء المصرية</p>
+                    </li>
+                    <li class="twafor-item">
+                        <p class="twafor-action">
+                            <a href="https://www.edaegypt.gov.eg/ar/%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA/%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1-%D8%B9%D9%86-%D8%AA%D9%88%D8%A7%D9%81%D8%B1-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D8%AD%D8%B6%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%AF%D9%88%D8%A7%D8%A6%D9%8A%D8%A9/" class="twafor-button">خدمة توافر</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo-container">
+                <img src="3lagy.png" alt="3lagy Logo" class="auth-logo">
+            </div>
+            <h2>Login</h2>
+            <input type="tel" id="login-phone" placeholder="Phone Number" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+        </div>
+
+        <!-- Registration Section -->
+        <div id="register-section" class="content-section">
+            <div class="container">
+                <h2>Register</h2>
+                <form id="register-form" onsubmit="register(); return false;">
+                    <div class="form-group">
+                        <input type="text" id="register-fname" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="register-lname" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="register-phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="register-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" id="register-btn">
+                        <span class="button-text">Register</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            </div>
+        </div>
+
+        <!-- Verification Modal -->
+        <div id="verify-overlay" class="modal-overlay" style="display: none;" role="dialog" aria-labelledby="verify-modal-title">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="verify-modal-title">Verify Phone Number</h2>
+                    <button class="close-btn" aria-label="Close modal" id="close-modal-btn">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>Please enter the 6-digit OTP sent to your phone number</p>
+                    <div id="recaptcha-container"></div>
+                    <input type="text" 
+                           id="verify-otp-input" 
+                           placeholder="Enter OTP" 
+                           inputmode="numeric"
+                           pattern="[0-9]*"
+                           maxlength="6"
+                           aria-label="One-time password">
+                    <div id="otp-timer" class="otp-timer"></div>
+                </div>
+                <div class="modal-actions">
+                    <button class="verify-btn" id="verify-otp-btn">
+                        <span class="button-text">Verify</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                    <button class="resend-btn" id="resend-otp-btn">
+                        <span class="button-text">Resend OTP</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                    <button class="cancel-btn" id="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Alert Modal -->
+        <div id="custom-alert-overlay" class="modal-overlay">
+            <div class="modal-content">
+                <p id="custom-alert-message"></p>
+                <button id="custom-alert-ok-btn">OK</button>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div id="chat-section" class="content-section" style="display: none;">
+            <div class="header">
+                <h2>Chat Room</h2>
+                <span id="current-user"></span>
+                <button onclick="showSection('login-section')" id="logout-btn">Logout</button>
+                <button id="admin-panel-btn" onclick="showAdminPanel()">Admin Panel</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div class="message-input">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <label for="file-input" id="file-input-label">
+                    Attach 
+                    <input type="file" id="file-input" accept="image/*" onchange="handleFileSelection(event)">
+                </label>
+                <div id="file-preview" class="modal-overlay">
+                    <div class="preview-content">
+                        <button class="close-btn" onclick="clearFilePreview()">&times;</button>
+                        <div id="file-preview-body"></div>
+                        <div id="file-preview-actions">
+                            <button onclick="clearFilePreview()">Cancel</button>
+                            <button onclick="sendMessageFromPreview()">Send</button>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="sendMessage()">Send</button>
+                <div id="image-modal" class="modal">
+                    <span class="close-btn" onclick="closeImageModal()">&times;</span>
+                    <img class="modal-content" id="expanded-img">
+                </div>
+                <div id="reaction-picker" class="reaction-picker"></div>
+                <div id="post-container"></div>
+                <div id="reply-preview" class="reply-preview">
+                    <div class="reply-content">
+                        <span class="reply-sender"></span>
+                        <span class="reply-text"></span>
+                        <button onclick="clearReply()" class="reply-cancel">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="admin-section" class="content-section" style="display: none;">
+            <div class="admin-container">
+                <div class="admin-header">
+                    <h2>Admin Panel</h2>
+                    <button onclick="showChat()" class="back-button">Back to Chat</button>
+                </div>
+                <div class="admin-content">
+                    <!-- Add User Form -->
+                    <div class="add-user-form">
+                        <h3>Add New User</h3>
+                        <form id="add-user-form" onsubmit="addNewUser(event)">
+                            <div class="form-group">
+                                <input type="text" id="new-user-name" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="new-user-phone" placeholder="Phone Number" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="new-user-password" placeholder="Password" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="new-user-ip" placeholder="IP Address (Optional)">
+                            </div>
+                            <button type="submit" class="add-user-btn">
+                                <span class="button-text">Add User</span>
+                                <div class="spinner hidden"></div>
+                            </button>
+                        </form>
+                    </div>
+                    <!-- User Table -->
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Password</th>
+                                    <th>IP Address</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="user-table-body">
+                                <!-- User data will be dynamically populated here -->
+                                <tr>
+                                    <td>User Name</td>
+                                    <td>Phone Number</td>
+                                    <td>Password</td>
+                                    <td>IP Address</td>
+                                    <td class="actions-cell">
+                                        <div class="dropdown">
+                                            <button class="dropdown-toggle" onclick="toggleDropdown(this)">
+                                                <span>Actions</span>
+                                                <span class="dropdown-arrow">▼</span>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <button onclick="promoteUser(this)" class="promote-btn">Promote</button>
+                                                <button onclick="demoteUser(this)" class="demote-btn">Demote</button>
+                                                <button onclick="banUser(this)" class="ban-btn">Ban</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div id="image-review-overlay" class="modal-overlay">
+      <div class="modal-box">
+        <div id="image-review-content">
+          <img id="reviewed-image" class="image-message" alt="Image to send">
+          <div class="modal-actions">
+            <button onclick="cancelImageReview()" class="cancel-btn">Cancel</button>
+            <button onclick="sendReviewedImage()" class="send-btn">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add the updated Firebase SDK script includes using the compat versions -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDjONDRKPN77Ukqc47vfrTVKu2jISp0MFI",
+            authDomain: "elagy-df72d.firebaseapp.com",
+            projectId: "elagy-df72d",
+            storageBucket: "elagy-df72d.appspot.com",
+            messagingSenderId: "1034033124225",
+            appId: "1:1034033124225:web:8719734179e717ef404e80",
+            measurementId: "G-JV8K526VKM"
+        };
+
+        // Define showAlert function before Firebase initialization
+        function showAlert(message) {
+            const alertOverlay = document.getElementById('custom-alert-overlay');
+            const alertMessage = document.getElementById('custom-alert-message');
+            if (alertOverlay && alertMessage) {
+                alertMessage.textContent = message;
+                alertOverlay.style.display = 'flex';
+            } else {
+                alert(message); // Fallback to native alert
+            }
+        }
+
+        try {
+            if (!firebase.apps.length) {
+                const app = firebase.initializeApp(firebaseConfig);
+                
+                // Initialize Firestore with core settings
+                window.db = firebase.firestore();
+                
+                // Configure Firestore settings
+                window.db.settings({
+                    cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED,
+                    experimentalForceLongPolling: true
+                });
+
+                // Log Firestore connection state
+                window.db.enableNetwork().then(() => {
+                    console.log('Firestore connected');
+                }).catch((error) => {
+                    console.error('Firestore connection error:', error);
+                    showAlert('Failed to connect to the database. Working in offline mode.');
+                });
+
+                console.log('Firebase initialized successfully');
+            }
+        } catch (error) {
+            console.error('Firebase initialization failed:', error);
+            showAlert('Failed to initialize the database. Please refresh the page.');
+        }
+    </script>
+
+    <script>
+        // Firebase configuration and initialization code here
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
